@@ -11,7 +11,7 @@ namespace DAL
     public class Contexto: DbContext
     {
 
-        public DbSet<Cuenta> Cuenta { get; set; }
+        public DbSet<Cuentas> Cuenta { get; set; }
         public DbSet<Deposito> Depositos { get; set; }
      
 

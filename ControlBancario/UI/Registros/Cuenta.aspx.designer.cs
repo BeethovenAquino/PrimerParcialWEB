@@ -22,13 +22,22 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// CuentaID control.
+        /// CuentaIDTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CuentaID;
+        protected global::System.Web.UI.WebControls.TextBox CuentaIDTextbox;
+        
+        /// <summary>
+        /// BuscarButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
         /// Label8 control.
@@ -67,24 +76,6 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox nombreTextbox;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// RegularExpressionValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-        
-        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -103,13 +94,40 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox BalanceTexbox;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// ErrorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.Label ErrorLabel;
+        
+        /// <summary>
+        /// NuevoButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button NuevoButton;
+        
+        /// <summary>
+        /// GuardarButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GuardarButton;
+        
+        /// <summary>
+        /// EliminarButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EliminarButton;
         
         /// <summary>
         /// ValidationSummary1 control.

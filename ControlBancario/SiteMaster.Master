@@ -4,12 +4,12 @@
 
 <html>
 <head runat="server">
+     <title>Registro Usuario</title>
     
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
-    <title>Inicio</title>
-    
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,7 @@
     <div style="background-color: goldenrod; height: 270px;" class="jumbotron jumbotron-fluid">
             <div class="container"  >
             <div class="row" style="width: 853px;">
-            <asp:Image ID="Image1" runat="server" Height=" 200px" ImageUrl="~/Logo.jpeg" Width="200px" />
+            <asp:Image ID="Image1" runat="server" Height=" 200px" ImageUrl="~/imagenes/Logo.jpeg" Width="200px" />
             <div class="container"  style="width: 602px;">              
             <h1 style="text-align: center; " top: 0px; class="display-4">B accesories</h1>
 
@@ -51,7 +51,7 @@
                     <a class="nav-link" runat="server" href="~/Default.aspx">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" runat="server" href="~/Registro Usuario/Usuario.aspx">Registro Usuario</a>
+                    <a class="nav-link" runat="server" href="~/UI/Registros/Cuenta.aspx">Registro Usuario</a>
                 </li>
                  <li class="nav-item">
                     <a class="nav-link" runat="server"  href="~/Consultar/ConsultarUsuario.aspx">Consultar Usuario</a>

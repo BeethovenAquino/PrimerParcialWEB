@@ -79,6 +79,7 @@
     <Content Include="imagenes\accesorio.jpeg" />
     <Content Include="imagenes\Caltera 2.jpeg" />
     <Content Include="imagenes\Caltera.jpeg" />
+    <Content Include="imagenes\Logo.jpeg" />
     <Content Include="UI\Registros\Cuenta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -115,6 +116,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{CFAAB979-06FA-49AE-89E9-6230B80B87BE}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{7f01dd8f-7f96-404b-bec4-eda385015733}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

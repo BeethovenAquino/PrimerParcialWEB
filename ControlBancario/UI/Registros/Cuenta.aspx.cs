@@ -77,6 +77,7 @@ namespace ControlBancario.UI.Registros
 
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
+            Limpiar();
 
         }
 
@@ -110,21 +111,40 @@ namespace ControlBancario.UI.Registros
         {
             RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
 
-            int id = Convert.ToInt32(CuentaIDTextbox.Text);
 
 
-
-            var usuario = repositorio.Buscar(id);
-
-
-
-            if (usuario == null)
-
-                MostrarMensaje(TiposMensajes.Error, "Registro no encontrado");
+            int id = 0;
+            if (CuentaIDTextbox.Text != null)
+            {
+                id = Convert.ToInt32(CuentaIDTextbox.Text);
+            }
 
             else
+                return;
+            if (CuentaIDTextbox.Text != null)
+            {
 
-                repositorio.Eliminar(id);
+                //Si tiene algun prestamo o deposito enlazado no elimina
+                RepositorioBase<Deposito> repositorios = new BLL.RepositorioBase<Deposito>();
+
+                if (repositorios.GetList(x => x.CuentaID == id).Count() > 0)
+                {
+                    MostrarMensaje(TiposMensajes.Error, "No Fue Posible Eliminarlo, Contiene Depositos en esa Cuenta");
+
+                }
+
+                var usuario = repositorio.Buscar(id);
+
+
+
+                if (usuario == null)
+
+                    MostrarMensaje(TiposMensajes.Error, "Registro no encontrado");
+
+                else
+
+                    repositorio.Eliminar(id);
+            }
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)

@@ -81,6 +81,7 @@
     <Content Include="imagenes\Caltera.jpeg" />
     <Content Include="imagenes\Logo.jpeg" />
     <Content Include="UI\Consultas\ConsulCuentas.aspx" />
+    <Content Include="UI\Consultas\ConsulDepositos.aspx" />
     <Content Include="UI\Registros\Cuenta.aspx" />
     <Content Include="UI\Registros\Depositos.aspx" />
     <Content Include="Web.config" />
@@ -107,6 +108,13 @@
     </Compile>
     <Compile Include="UI\Consultas\ConsulCuentas.aspx.designer.cs">
       <DependentUpon>ConsulCuentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsulDepositos.aspx.cs">
+      <DependentUpon>ConsulDepositos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsulDepositos.aspx.designer.cs">
+      <DependentUpon>ConsulDepositos.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\Cuenta.aspx.cs">
       <DependentUpon>Cuenta.aspx</DependentUpon>

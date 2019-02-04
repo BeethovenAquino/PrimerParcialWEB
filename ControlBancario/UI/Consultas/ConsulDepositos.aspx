@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="ConsulCuentas.aspx.cs" Inherits="ControlBancario.UI.Consultas.ConsulCuentas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="ConsulDepositos.aspx.cs" Inherits="ControlBancario.UI.Consultas.ConsulDepositos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,10 +8,11 @@
             <label for="TipodeFiltro" style="width: 50px">Filtro:</label>
             <div style="width: 220px">
                 <asp:DropDownList class="form-control" ID="TipodeFiltro" runat="server" for="TipodeFiltro" Width="200px">
-                    <asp:ListItem>CuentaID</asp:ListItem>
+                    <asp:ListItem>DepositoID</asp:ListItem>
                     <asp:ListItem>Fecha</asp:ListItem>
-                    <asp:ListItem>Nombre</asp:ListItem>
-                     <asp:ListItem>Balance</asp:ListItem>
+                    <asp:ListItem>CuentaID</asp:ListItem>
+                     <asp:ListItem>Concepto</asp:ListItem>
+                    <asp:ListItem>Monto</asp:ListItem>
                     
 
                 </asp:DropDownList>
@@ -60,13 +61,14 @@
     <div class="container form-group ">
         <div class="row">
             <div class="form-row justify-content-center">
-                <asp:GridView ID="CuentaGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="false" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <asp:GridView ID="DepositoGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="false" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="LightSkyBlue" />
                     <Columns>
-                        <asp:BoundField DataField="CuentaID" HeaderText="CuentaID" />
+                        <asp:BoundField DataField="DepositoID" HeaderText="DepositoID" />
                         <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
-                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="Balance" HeaderText="Balance" />
+                        <asp:BoundField DataField="CuentaID" HeaderText="CuentaID" />
+                        <asp:BoundField DataField="Concepto" HeaderText="Concepto" />
+                        <asp:BoundField DataField="Monto" HeaderText="Monto" />
                         
 
 

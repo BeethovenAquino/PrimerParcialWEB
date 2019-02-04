@@ -46,6 +46,14 @@ namespace ControlBancario.UI.Registros
             return deposito;
         }
 
+        private void LlenaCampos(Deposito deposito)
+        {
+            DepositoIDTextbox.Text = deposito.DepositoID.ToString();
+            LlenaComboCuentaID();
+            ConceptoTextbox.Text = deposito.Concepto;
+            MontoTexbox.Text = deposito.Monto.ToString();
+          
+        }
         private void Limpiar()
         {
             DepositoIDTextbox.Text = "";
@@ -137,6 +145,23 @@ namespace ControlBancario.UI.Registros
             else
 
                 repositorio.Eliminar(id);
+        }
+
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            RepositorioBase<Deposito> repositorio = new RepositorioBase<Deposito>();
+
+
+            Deposito deposito = repositorio.Buscar(Convert.ToInt32(DepositoIDTextbox.Text));
+            if (deposito != null)
+            {
+                LlenaCampos(deposito);
+            }
+            else
+            {
+                Response.Write("<script>alert('Usuario no encontrado');</script>");
+
+            }
         }
     }
 }

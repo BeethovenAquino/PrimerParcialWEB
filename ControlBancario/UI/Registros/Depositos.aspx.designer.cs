@@ -58,13 +58,13 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox FechadateTime;
         
         /// <summary>
-        /// CuentaI-DropDownList control.
+        /// Cuenta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CuentaI-DropDownList;
+        protected global::System.Web.UI.WebControls.Label Cuenta;
         
         /// <summary>
         /// DropDownList control.

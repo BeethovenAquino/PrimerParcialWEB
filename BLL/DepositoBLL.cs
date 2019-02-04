@@ -53,13 +53,14 @@ namespace BLL
 
         public  bool Modificar(Deposito entity)
         {
-          
+            //var BaseDatos = base.Buscar(entity.DepositoID);
+
             bool paso = false;
             Contexto contexto = new Contexto();
             try
             {
-                var Deposito = contexto.Depositos.Find(id);
-                contexto.Cuenta.Find(entity.CuentaID).Balance -= Deposito.Monto;
+               
+                //contexto.Cuenta.Find(entity.CuentaID).Balance -= .Monto;
                 contexto.Cuenta.Find(entity.CuentaID).Balance += entity.Monto;
 
                 contexto.Entry(entity).State = System.Data.Entity.EntityState.Modified;

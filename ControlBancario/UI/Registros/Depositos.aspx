@@ -54,7 +54,7 @@
                                 <tr>
                                     <td>
                                         <strong>
-                                            <asp:Label ID="CuentaI-DropDownList" runat="server" Text="CuentaID:"></asp:Label></strong>
+                                            <asp:Label ID="Cuenta" runat="server" Text="CuentaID:"></asp:Label></strong>
                                     </td>
                                 </tr>
                                 <tr>

@@ -50,12 +50,26 @@
                 <li class="nav-item">
                     <a class="nav-link" runat="server" href="~/Default.aspx">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" runat="server" href="~/UI/Registros/Cuenta.aspx">Registro Usuario</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-link" runat="server"  href="~/Consultar/ConsultarUsuario.aspx">Consultar Usuario</a>
-                </li>
+               <div class="dropdown">
+                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Registros
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="~/UI/Registros/Cuenta.aspx">Resgitro Cuenta</a>
+                            <a class="dropdown-item" href="~/UI/Registros/Depositos.aspx">Registro Depositos</a>
+                            
+                          </div>
+                        </div>
+                                 <div class="dropdown">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Consultas
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="~/UI/Consultas/ConsulCuentas.aspx">Consulta Cuenta</a>
+                    <a class="dropdown-item" href="~/UI/Consultas/ConsulDepositos.aspx">Consulta Depositos</a>
+                    
+                  </div>
+                </div>
                <%-- <li class="nav-item">
                     <a runat="server" onserverclick="Unnamed_ServerClick" class="nav-link" href="#">Login out</a>
                 </li>--%>

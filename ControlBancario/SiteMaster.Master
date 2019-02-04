@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-     <title>Registro Usuario</title>
+     <title>Control Bancario</title>
     
 
 
@@ -55,8 +55,8 @@
                             Registros
                           </button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="~/UI/Registros/Cuenta.aspx">Resgitro Cuenta</a>
-                            <a class="dropdown-item" href="~/UI/Registros/Depositos.aspx">Registro Depositos</a>
+                            <a class="dropdown-item" runat="server" href="~/UI/Registros/Cuenta.aspx">Resgitro Cuenta</a>
+                            <a class="dropdown-item" runat="server" href="~/UI/Registros/Depositos.aspx">Registro Depositos</a>
                             
                           </div>
                         </div>
@@ -65,8 +65,8 @@
                     Consultas
                   </button>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="~/UI/Consultas/ConsulCuentas.aspx">Consulta Cuenta</a>
-                    <a class="dropdown-item" href="~/UI/Consultas/ConsulDepositos.aspx">Consulta Depositos</a>
+                    <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsulCuentas.aspx">Consulta Cuenta</a>
+                    <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsulDepositos.aspx">Consulta Depositos</a>
                     
                   </div>
                 </div>

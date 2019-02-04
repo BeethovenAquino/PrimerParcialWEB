@@ -73,6 +73,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\toastr.css" />
+    <Content Include="content\toastr.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="imagenes\1.jpeg" />
     <Content Include="imagenes\2.jpeg" />
@@ -80,6 +82,13 @@
     <Content Include="imagenes\Caltera 2.jpeg" />
     <Content Include="imagenes\Caltera.jpeg" />
     <Content Include="imagenes\Logo.jpeg" />
+    <Content Include="content\toastr.scss" />
+    <Content Include="content\toastr.less" />
+    <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.3.js" />
+    <Content Include="Scripts\jquery-1.6.3.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="UI\Consultas\ConsulCuentas.aspx" />
     <Content Include="UI\Consultas\ConsulDepositos.aspx" />
     <Content Include="UI\Registros\Cuenta.aspx" />
@@ -130,6 +139,7 @@
     <Compile Include="UI\Registros\Depositos.aspx.designer.cs">
       <DependentUpon>Depositos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -151,6 +161,7 @@
       <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

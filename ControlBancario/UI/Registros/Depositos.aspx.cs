@@ -39,6 +39,8 @@ namespace ControlBancario.UI.Registros
                 deposito.DepositoID = 0;
             }
 
+            deposito.CuentaID = Convert.ToInt32(DropDownList.SelectedValue);
+
             deposito.Concepto = ConceptoTextbox.Text;
             deposito.Fecha = Convert.ToDateTime(FechadateTime.Text);
             deposito.Monto = Convert.ToDecimal(MontoTexbox.Text.ToString());
@@ -82,8 +84,9 @@ namespace ControlBancario.UI.Registros
 
         private void LlenaComboCuentaID()
         {
-            BLL.RepositorioBase<Cuentas> cuentas = new BLL.RepositorioBase<Cuentas>();
+            RepositorioBase<Cuentas> cuentas = new RepositorioBase<Cuentas>();
             DropDownList.Items.Clear();
+            DropDownList.Items.Add(condicion);
             DropDownList.DataSource = cuentas.GetList(x => true);
             DropDownList.DataValueField = "CuentaID";
             DropDownList.DataTextField = "Nombre";
@@ -103,10 +106,11 @@ namespace ControlBancario.UI.Registros
                 return;
 
 
+            DepositoBLL dep = new DepositoBLL();
             Deposito deposito = new Deposito();
             bool paso = false;
 
-            LlenaClase(deposito);
+            dep.Guardar(LlenaClase(deposito));
             //Validacion
             if (deposito.DepositoID == 0)
 
@@ -116,7 +120,7 @@ namespace ControlBancario.UI.Registros
             if (paso)
 
             {
-                MostrarMensaje(TiposMensajes.Success, "Registro Exitoso!");
+                Utilities.Utils.ShowToastr(this, "Guardo Con Exito", "Exito", "success");
                 Limpiar();
 
             }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class DepositoBLL
+    public class DepositoBLL : RepositorioBase<Deposito>
     {
-        public bool Guardar(Deposito entity)
+        public  bool Guardar(Deposito entity)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -51,21 +51,24 @@ namespace BLL
         }
 
 
-        public  bool Modificar(Deposito entity)
+        public override  bool Modificar(Deposito entity)
         {
-            //var BaseDatos = base.Buscar(entity.DepositoID);
+            var BaseDatos = base.Buscar(entity.DepositoID);
 
             bool paso = false;
             Contexto contexto = new Contexto();
             try
             {
                
-                //contexto.Cuenta.Find(entity.CuentaID).Balance -= .Monto;
+               contexto.Cuenta.Find(entity.CuentaID).Balance -= BaseDatos.Monto;
                 contexto.Cuenta.Find(entity.CuentaID).Balance += entity.Monto;
 
                 contexto.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+                
                 if (contexto.SaveChanges() > 0)
                     paso = true;
+
+                contexto.Cuenta.Find(entity.CuentaID).Balance -= entity.Monto;
 
 
             }

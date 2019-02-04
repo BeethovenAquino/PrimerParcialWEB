@@ -17,8 +17,8 @@ namespace ControlBancario.UI.Consultas
             if (!Page.IsPostBack)
             {
 
-                FechaCheckBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                FechaCheckBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                DesdeTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                HastaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
 
         }

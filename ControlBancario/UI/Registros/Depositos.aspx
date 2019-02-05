@@ -9,6 +9,10 @@
 
                 <div class="Container-fluid">
                     <div class="align-content-center">
+                        <div class="panel-heading text-center">
+                            <h1><ins>Deposito</ins></h1>
+                            <br />
+                        </div>
 
                         <%--DepositoID--%>
                         <div>

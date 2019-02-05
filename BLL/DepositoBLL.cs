@@ -2,6 +2,7 @@
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace BLL
 {
     public class DepositoBLL : RepositorioBase<Deposito>
     {
-        public  bool Guardar(Deposito entity)
+        public bool Guardar(Deposito entity)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -29,48 +30,70 @@ namespace BLL
             return paso;
         }
 
-        public  bool Eliminar(int id)
+        public bool Eliminar(int id)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                var Deposito = contexto.Depositos.Find(id);
-                contexto.Cuenta.Find(Deposito.CuentaID).Balance -= Deposito.Monto;
-                contexto.Entry(Deposito).State = System.Data.Entity.EntityState.Deleted;
+                Deposito depositos = contexto.Depositos.Find(id);
+
+                if (depositos != null)
+                {
+                    var cuenta = contexto.Cuenta.Find(depositos.CuentaID);
+                    //Incrementar la cantidad
+                    cuenta.Balance -= depositos.Monto;
+
+                    contexto.Entry(depositos).State = EntityState.Deleted;
+
+                }
+
                 if (contexto.SaveChanges() > 0)
+                {
                     paso = true;
+                    contexto.Dispose();
+                }
             }
             catch (Exception)
             {
-
                 throw;
             }
+
             return paso;
         }
 
 
-        public override  bool Modificar(Deposito entity)
+        public override bool Modificar(Deposito entity)
         {
-            var BaseDatos = base.Buscar(entity.DepositoID);
 
             bool paso = false;
             Contexto contexto = new Contexto();
             try
             {
-               
-               contexto.Cuenta.Find(entity.CuentaID).Balance -= BaseDatos.Monto;
-                contexto.Cuenta.Find(entity.CuentaID).Balance += entity.Monto;
-
-                contexto.Entry(entity).State = System.Data.Entity.EntityState.Modified;
                 
+                Deposito DepositoAnt = contexto.Depositos.Find(entity.DepositoID);
+
+                var cuenta = contexto.Cuenta.Find(entity.CuentaID);
+                var CuentaAnt = contexto.Cuenta.Find(DepositoAnt.CuentaID);
+
+                if (entity.CuentaID != DepositoAnt.CuentaID)
+                {
+                    cuenta.Balance += entity.Monto;
+                    CuentaAnt.Balance -= DepositoAnt.Monto;
+                }
+                {
+                    decimal diferencia = entity.Monto - DepositoAnt.Monto;
+                    cuenta.Balance += diferencia;
+                }
+
+                contexto.Entry(entity).State = EntityState.Modified;
+
                 if (contexto.SaveChanges() > 0)
+                {
                     paso = true;
-
-                contexto.Cuenta.Find(entity.CuentaID).Balance -= entity.Monto;
-
-
+                }
+                contexto.Dispose();
             }
             catch (Exception)
             {
@@ -81,6 +104,7 @@ namespace BLL
 
 
             return paso;
+
         }
     }
 }

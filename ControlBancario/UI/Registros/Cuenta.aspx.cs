@@ -110,44 +110,42 @@ namespace ControlBancario.UI.Registros
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
+            Limpiar();
+            RepositorioBase<Cuenta> repositorio = new RepositorioBase<Cuenta>();
 
 
 
-            int id = 0;
-            if (CuentaIDTextbox.Text != null)
+            int id = Utilities.Utils.ToInt(CuentaIDTextbox.Text);
+            var cuenta = repositorio.Buscar(id);
+
+
+            if (cuenta == null)
             {
-                id = Convert.ToInt32(CuentaIDTextbox.Text);
+                Utilities.Utils.ShowToastr(this, "No se puede Eliminar", "Fallido", "success");
+            }
+
+            //Si tiene algun prestamo o deposito enlazado no elimina
+            RepositorioBase<Deposito> repositorios = new BLL.RepositorioBase<Deposito>();
+
+            if (repositorios.GetList(x => x.CuentaID == id).Count() > 0)
+            {
+                Utilities.Utils.ShowToastr(this, "No se puede Eliminar, La cuenta contiene depositos", "contiene Depositos", "success");
+
             }
 
             else
-                return;
-            if (CuentaIDTextbox.Text != null)
             {
-
-                //Si tiene algun prestamo o deposito enlazado no elimina
-                RepositorioBase<Deposito> repositorios = new BLL.RepositorioBase<Deposito>();
-
-                if (repositorios.GetList(x => x.CuentaID == id).Count() > 0)
-                {
-                    Utilities.Utils.ShowToastr(this, "No se puede Eliminar, La cuenta contiene depositos", "contiene Depositos", "success");
-
-                }
-
-                var usuario = repositorio.Buscar(id);
+                repositorio.Eliminar(id);
 
 
 
-                if (usuario == null)
-
-                    Utilities.Utils.ShowToastr(this, "Registro no encontrado", "Fallido", "success");
-
-                else
-
-                    repositorio.Eliminar(id);
+                Utilities.Utils.ShowToastr(this, "Cuenta a sido Eliminada", "Exito", "success");
+                Limpiar();
             }
         }
 
+
+        
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();

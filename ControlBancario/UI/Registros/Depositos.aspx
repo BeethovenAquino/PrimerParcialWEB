@@ -62,8 +62,8 @@
                                         <asp:DropDownList ID="DropDownList" runat="server"></asp:DropDownList>
                                     </td>
                                     <td>
-                                       <asp:DropDownList  ValidationGroup="Guardar" AutoPostBack="true" ID="Cuenta_Id_DropDownList" AppendDataBoundItems="true" CssClass="form-control input-sm" runat="server"></asp:DropDownList>
-                                        <asp:CustomValidator ValidationGroup="Guardar" ID="CustomValidator2" Display="Dynamic" SetFocusOnError="true" CssClass="ErrorMessage" ControlToValidate="DropDownList" runat="server" ErrorMessage="Seleccione una cuenta" OnServerValidate="CustomValidator2_ServerValidate"></asp:CustomValidator>
+                                       <%--<asp:DropDownList  ValidationGroup="Guardar" AutoPostBack="true" ID="Cuenta_Id_DropDownList" AppendDataBoundItems="true" CssClass="form-control input-sm" runat="server"></asp:DropDownList>
+                                        <asp:CustomValidator ValidationGroup="Guardar" ID="CustomValidator2" Display="Dynamic" SetFocusOnError="true" CssClass="ErrorMessage" ControlToValidate="DropDownList" runat="server" ErrorMessage="Seleccione una cuenta" OnServerValidate="CustomValidator2_ServerValidate"></asp:CustomValidator>--%>
                                     </td>
                                 </tr>
                             </table>
@@ -84,8 +84,8 @@
                                         <asp:TextBox ID="ConceptoTextbox" runat="server" class="form-control" Height="30" Width="300" MaxLength="50"></asp:TextBox>
                                     </td>
                                     <td>
-                                        <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Campos Obligatorios" ControlToValidate="nombreTextbox" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo Letras" ControlToValidate="nombreTextbox" Font-Bold="True" ForeColor="Red" ValidationExpression="[A-Za-z ]*">*</asp:RegularExpressionValidator>--%>
+                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Campos Obligatorios" ControlToValidate="ConceptoTextbox" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo Letras" ControlToValidate="ConceptoTextbox" Font-Bold="True" ForeColor="Red" ValidationExpression="[A-Za-z ]*">*</asp:RegularExpressionValidator>
                                     </td>
                                 </tr>
                             </table>
@@ -106,7 +106,9 @@
                                         <asp:TextBox ID="MontoTexbox" runat="server" class="form-control" Height="30" Width="300" MaxLength="80"></asp:TextBox>
                                     </td>
                                     <td>
-                                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Campos Obligatorios" Font-Bold="True" ForeColor="Red" ControlToValidate="NombreUsuarioTextBox">*</asp:RequiredFieldValidator>--%>
+                                          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Campos Obligatorios" ControlToValidate="MontoTexbox" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                        <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Solo Numeros" ControlToValidate="MontoTexbox" Font-Bold="True" ForeColor="Red" ValidationExpression="([0-9]|-)*">*</asp:RegularExpressionValidator>--%>
+                                       
                                     </td>
                                 </tr>
                             </table>

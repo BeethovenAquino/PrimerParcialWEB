@@ -22,12 +22,14 @@ namespace ControlBancario.UI.Registros
 
                 LlenaComboCuentaID();
                 FechadateTime.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                DepositoIDTextbox.Text = "0";
             }
 
         }
 
-        public Deposito LlenaClase(Deposito deposito)
+        public Deposito LlenaClase()
         {
+            Deposito deposito = new Deposito();
             int id;
             bool result = int.TryParse(DepositoIDTextbox.Text, out id);
             if (result == true)
@@ -106,65 +108,112 @@ namespace ControlBancario.UI.Registros
                 return;
 
 
-            DepositoBLL dep = new DepositoBLL();
-            Deposito deposito = new Deposito();
+            DepositoBLL repositorio = new DepositoBLL();
+            Deposito depositos = LlenaClase();
+            RepositorioBase<Cuentas> cuentas = new RepositorioBase<Cuentas>();
+
+            var validar = cuentas.Buscar(Utilities.Utils.ToInt(DropDownList.SelectedValue));
+
             bool paso = false;
 
-            dep.Guardar(LlenaClase(deposito));
-            //Validacion
-            if (deposito.DepositoID == 0)
 
-                paso = repositorio.Guardar(deposito);
-            else
-                paso = repositorio.Modificar(deposito);
-            if (paso)
-
+            if (validar != null)
             {
-                Utilities.Utils.ShowToastr(this, "Guardo Con Exito", "Exito", "success");
-                Limpiar();
+
+                if (Page.IsValid)
+                {
+                    if (DepositoIDTextbox.Text == "0")
+                    {
+                        paso = repositorio.Guardar(depositos);
+
+                    }
+
+                    else
+                    {
+                        var verificar = repositorio.Buscar(Utilities.Utils.ToInt(DepositoIDTextbox.Text));
+                        if (verificar != null)
+                        {
+                            paso = repositorio.Modificar(depositos);
+                        }
+                        else
+                        {
+                            Utilities.Utils.ShowToastr(this, "No se encuentra el ID", "Fallo", "success");
+                            return;
+                        }
+                    }
+
+                    if (paso)
+
+                    {
+                        Utilities.Utils.ShowToastr(this, "Registro Con Exito", "Exito", "success");
+
+                    }
+
+                    else
+
+                    {
+                        Utilities.Utils.ShowToastr(this, "No se pudo Guardar", "Fallo", "success");
+                    }
+                    Limpiar();
+                    return;
+                }
+
 
             }
             else
-                Utilities.Utils.ShowToastr(this, "No Guardo Con Exito", "Fallido", "danger");
+            {
+                Utilities.Utils.ShowToastr(this, "El numero de cuenta no existe", "Fallo", "success");
+                return;
 
-            Limpiar();
+
+            }
         }
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Deposito> repositorio = new RepositorioBase<Deposito>();
-
-            int id = Convert.ToInt32(DepositoIDTextbox.Text);
-
-
-
-            var usuario = repositorio.Buscar(id);
+            
+            DepositoBLL repositorio = new DepositoBLL();
+            RepositorioBase<Deposito> dep = new RepositorioBase<Deposito>();
 
 
+            int id = Utilities.Utils.ToInt(DepositoIDTextbox.Text);
+            var depositos = repositorio.Buscar(id);
 
-            if (usuario == null)
 
-                Utilities.Utils.ShowToastr(this, "Registro no encontrado", "FAllido", "danger");
+            if (depositos == null)
+            {
+                Utilities.Utils.ShowToastr(this, "El deposito no existe", "Fallo", "success");
+            }
 
             else
-
+            {
                 repositorio.Eliminar(id);
+
+
+
+                Utilities.Utils.ShowToastr(this, "Elimino Correctamente", "Exito", "success");
+                Limpiar();
+            }
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
+
             RepositorioBase<Deposito> repositorio = new RepositorioBase<Deposito>();
 
 
-            Deposito deposito = repositorio.Buscar(Convert.ToInt32(DepositoIDTextbox.Text));
-            if (deposito != null)
+            Deposito depositos = repositorio.Buscar(Utilities.Utils.ToInt(DepositoIDTextbox.Text));
+
+            Limpiar();
+            if (depositos != null)
             {
-                LlenaCampos(deposito);
+                LlenaCampos(depositos);
+
+                Utilities.Utils.ShowToastr(this, "Se ha Encontrado su deposito", "Exito", "success");
             }
             else
             {
-                Utilities.Utils.ShowToastr(this, "No se Encontro El ID", "Fallido", "danger");
-
+                Utilities.Utils.ShowToastr(this, "el ID registrado no existe", "Fallido", "success");
             }
         }
     }

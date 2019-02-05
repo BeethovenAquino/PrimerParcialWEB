@@ -23,8 +23,9 @@ namespace ControlBancario.UI.Registros
 
         }
 
-        public Cuentas LlenaClase(Cuentas cuentas)
+        public Cuentas LlenaClase()
         {
+            Cuentas cuentas = new Cuentas();
             int id;
             bool result = int.TryParse(CuentaIDTextbox.Text, out id);
             if (result == true)
@@ -85,33 +86,55 @@ namespace ControlBancario.UI.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
-            Cuentas cuentas = new Cuentas();
+
+            Cuentas cuenta = LlenaClase();
+
             bool paso = false;
 
-            LlenaClase(cuentas);
-            //Validacion
-            if (cuentas.CuentaID == 0)
-
-                paso = repositorio.Guardar(cuentas);
-            else
-                paso = repositorio.Modificar(cuentas);
-            if (paso)
-
+            if (Page.IsValid)
             {
-                Utilities.Utils.ShowToastr(this, "Registro Con Exito", "Exito", "success");
+                if (CuentaIDTextbox.Text == "0")
+                {
+                    paso = repositorio.Guardar(cuenta);
+
+                }
+
+
+                else
+                {
+                    var verificar = repositorio.Buscar(Utilities.Utils.ToInt(CuentaIDTextbox.Text));
+
+                    if (verificar != null)
+                    {
+                        paso = repositorio.Modificar(cuenta);
+                    }
+                    else
+                    {
+                        Utilities.Utils.ShowToastr(this, "Cuenta No Existo", "Fallido", "success");
+                        return;
+                    }
+                }
+
+                if (paso)
+
+                {
+                    Utilities.Utils.ShowToastr(this, "Cuenta Registrada", "Exito", "success");
+                }
+
+                else
+
+                {
+                    Utilities.Utils.ShowToastr(this, "No pudo Guardarse la cuenta", "Exito", "success");
+                }
                 Limpiar();
-
+                return;
             }
-            else
-                Utilities.Utils.ShowToastr(this, "No Fue posible Guardar", "Fallido", "success");
-
-            Limpiar();
         }
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-            Limpiar();
-            RepositorioBase<Cuenta> repositorio = new RepositorioBase<Cuenta>();
+            
+            RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
 
 
 
@@ -125,7 +148,7 @@ namespace ControlBancario.UI.Registros
             }
 
             //Si tiene algun prestamo o deposito enlazado no elimina
-            RepositorioBase<Deposito> repositorios = new BLL.RepositorioBase<Deposito>();
+            RepositorioBase<Deposito> repositorios = new RepositorioBase<Deposito>();
 
             if (repositorios.GetList(x => x.CuentaID == id).Count() > 0)
             {
@@ -136,9 +159,7 @@ namespace ControlBancario.UI.Registros
             else
             {
                 repositorio.Eliminar(id);
-
-
-
+                
                 Utilities.Utils.ShowToastr(this, "Cuenta a sido Eliminada", "Exito", "success");
                 Limpiar();
             }

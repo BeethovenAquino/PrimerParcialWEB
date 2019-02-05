@@ -53,7 +53,7 @@ namespace ControlBancario.UI.Consultas
 
                     if (repositorio.GetList(filtro).Count() == 0)
                     {
-                        Utilities.Utils.ShowToastr(this, "ID no existe", "Fallido", "danger");
+                        Utilities.Utils.ShowToastr(this, "Cuenta No Existe", "Fallido", "success");
                         return;
                     }
 
@@ -72,7 +72,7 @@ namespace ControlBancario.UI.Consultas
 
                     if (repositorio.GetList(filtro).Count() == 0)
                     {
-                        Utilities.Utils.ShowToastr(this, "Nombre no existe", "Fallido", "danger");
+                        Utilities.Utils.ShowToastr(this, "Nombre no existe", "Fallido", "success");
                         return;
                     }
 
@@ -93,7 +93,7 @@ namespace ControlBancario.UI.Consultas
                     }
                     if (repositorio.GetList(filtro).Count() == 0)
                     {
-                        Utilities.Utils.ShowToastr(this, "Balance no existe", "Fallido", "danger");
+                        Utilities.Utils.ShowToastr(this, "Balance no encontrado", "Fallido", "success");
                         return;
                     }
                     break;
@@ -111,7 +111,7 @@ namespace ControlBancario.UI.Consultas
 
                     if (repositorio.GetList(filtro).Count() == 0)
                     {
-                        Utilities.Utils.ShowToastr(this, "No existen Cuentas", "Fallido", "danger");
+                        Utilities.Utils.ShowToastr(this, "No existen dichas cuentas", "Fallido", "success");
                         return;
                     }
                     break;

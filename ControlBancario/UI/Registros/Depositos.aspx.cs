@@ -125,7 +125,7 @@ namespace ControlBancario.UI.Registros
 
             }
             else
-                MostrarMensaje(TiposMensajes.Error, "No fue posible Guardar el Registro");
+                Utilities.Utils.ShowToastr(this, "No Guardo Con Exito", "Fallido", "danger");
 
             Limpiar();
         }
@@ -144,7 +144,7 @@ namespace ControlBancario.UI.Registros
 
             if (usuario == null)
 
-                MostrarMensaje(TiposMensajes.Error, "Registro no encontrado");
+                Utilities.Utils.ShowToastr(this, "Registro no encontrado", "FAllido", "danger");
 
             else
 
@@ -163,7 +163,7 @@ namespace ControlBancario.UI.Registros
             }
             else
             {
-                Response.Write("<script>alert('Usuario no encontrado');</script>");
+                Utilities.Utils.ShowToastr(this, "No se Encontro El ID", "Fallido", "danger");
 
             }
         }

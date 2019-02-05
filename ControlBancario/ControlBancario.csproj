@@ -79,8 +79,14 @@
     <Content Include="imagenes\1.jpeg" />
     <Content Include="imagenes\2.jpeg" />
     <Content Include="imagenes\accesorio.jpeg" />
+    <Content Include="imagenes\AsFinanzasSlide.png" />
+    <Content Include="imagenes\AsGymSlide.png" />
+    <Content Include="imagenes\AsVentasSlide.png" />
     <Content Include="imagenes\Caltera 2.jpeg" />
     <Content Include="imagenes\Caltera.jpeg" />
+    <Content Include="imagenes\CobrosMoviles2.0Slide.png" />
+    <Content Include="imagenes\iconoSAG.png" />
+    <Content Include="imagenes\Logo SAG.png" />
     <Content Include="imagenes\Logo.jpeg" />
     <Content Include="content\toastr.scss" />
     <Content Include="content\toastr.less" />

@@ -23,16 +23,17 @@
             background: #aaa;
         }
     </style>
+    <link rel="icon" type="image/png" href="imagenes/iconoSAG.png" />
 </head>
 <body>
-    <div style="background-color: goldenrod; height: 270px;" class="jumbotron jumbotron-fluid">
+    <div style="background-color: ghostwhite; height: 270px;" class="jumbotron jumbotron-fluid">
             <div class="container"  >
             <div class="row" style="width: 853px;">
-            <asp:Image ID="Image1" runat="server" Height=" 200px" ImageUrl="~/imagenes/Logo.jpeg" Width="200px" />
+            <asp:Image ID="Image1" runat="server" Height=" 230px" ImageUrl="~/imagenes/Logo SAG.png" Width="250px" />
             <div class="container"  style="width: 602px;">              
-            <h1 style="text-align: center; " top: 0px; class="display-4">B accesories</h1>
+            <h1 style="text-align: center; " top: 0px; class="display-4">Soluciones Almonte Gil</h1>
 
-            <p style="text-align: center; " top: 0px; class="lead">Tienda online</p>
+            <p style="text-align: center; " top: 0px; class="lead">Control Bancario</p>
 
             </div>
                 </div>
@@ -78,6 +79,7 @@
         </div>
     </nav>
 
+    
 
 
     <form id="form1" runat="server">

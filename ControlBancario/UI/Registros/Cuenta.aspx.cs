@@ -17,7 +17,8 @@ namespace ControlBancario.UI.Registros
             if (!Page.IsPostBack)
             {
                 FechadateTime.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                
+                BalanceTexbox.Text = "0";
+                CuentaIDTextbox.Text = "0";
             }
 
         }
@@ -97,12 +98,12 @@ namespace ControlBancario.UI.Registros
             if (paso)
 
             {
-                MostrarMensaje(TiposMensajes.Success, "Registro Exitoso!");
+                Utilities.Utils.ShowToastr(this, "Registro Con Exito", "Exito", "success");
                 Limpiar();
 
             }
             else
-                MostrarMensaje(TiposMensajes.Error, "No fue posible Guardar el Registro");
+                Utilities.Utils.ShowToastr(this, "No Fue posible Guardar", "Fallido", "success");
 
             Limpiar();
         }
@@ -129,7 +130,7 @@ namespace ControlBancario.UI.Registros
 
                 if (repositorios.GetList(x => x.CuentaID == id).Count() > 0)
                 {
-                    MostrarMensaje(TiposMensajes.Error, "No Fue Posible Eliminarlo, Contiene Depositos en esa Cuenta");
+                    Utilities.Utils.ShowToastr(this, "No se puede Eliminar, La cuenta contiene depositos", "contiene Depositos", "success");
 
                 }
 
@@ -139,7 +140,7 @@ namespace ControlBancario.UI.Registros
 
                 if (usuario == null)
 
-                    MostrarMensaje(TiposMensajes.Error, "Registro no encontrado");
+                    Utilities.Utils.ShowToastr(this, "Registro no encontrado", "Fallido", "success");
 
                 else
 
@@ -159,7 +160,7 @@ namespace ControlBancario.UI.Registros
             }
             else
             {
-                Response.Write("<script>alert('Usuario no encontrado');</script>");
+                Utilities.Utils.ShowToastr(this, "Usuario no encontrado", "Fallido", "success");
 
             }
 

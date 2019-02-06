@@ -82,8 +82,6 @@ namespace BLL
             try
             {
                 
-                //Buscar
-
                 var depositosanterior = repositorio.Buscar(entity.DepositoID);
 
                 var Cuenta = contexto.Cuenta.Find(entity.CuentaID);
@@ -95,15 +93,10 @@ namespace BLL
                     Cuentasanterior.Balance -= depositosanterior.Monto;
                 }
 
-
-
-                //identificar la diferencia ya sea restada o sumada
+                
                 decimal diferencia;
                 diferencia = entity.Monto - depositosanterior.Monto;
 
-
-
-                //aplicar diferencia al inventario 
                 Cuenta.Balance += diferencia;
 
                 contexto.Entry(entity).State = EntityState.Modified;

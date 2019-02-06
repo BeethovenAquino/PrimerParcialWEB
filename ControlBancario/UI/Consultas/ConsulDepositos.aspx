@@ -9,10 +9,10 @@
             <div style="width: 220px">
                 <asp:DropDownList class="form-control" ID="TipodeFiltro" runat="server" for="TipodeFiltro" Width="200px">
                     <asp:ListItem>DepositoID</asp:ListItem>
-                    <asp:ListItem>Fecha</asp:ListItem>
                     <asp:ListItem>CuentaID</asp:ListItem>
-                     <asp:ListItem>Concepto</asp:ListItem>
-                    <asp:ListItem>Monto</asp:ListItem>
+                    <asp:ListItem>Concepto</asp:ListItem>
+                     <asp:ListItem>Monto</asp:ListItem>
+                    <asp:ListItem>Todos</asp:ListItem>
                     
 
                 </asp:DropDownList>

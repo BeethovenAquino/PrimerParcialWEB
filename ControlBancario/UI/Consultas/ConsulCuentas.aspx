@@ -9,9 +9,9 @@
             <div style="width: 220px">
                 <asp:DropDownList class="form-control" ID="TipodeFiltro" runat="server" for="TipodeFiltro" Width="200px">
                     <asp:ListItem>CuentaID</asp:ListItem>
-                    <asp:ListItem>Fecha</asp:ListItem>
                     <asp:ListItem>Nombre</asp:ListItem>
-                     <asp:ListItem>Balance</asp:ListItem>
+                    <asp:ListItem>Balace</asp:ListItem>
+                     <asp:ListItem>Todos</asp:ListItem>
                     
 
                 </asp:DropDownList>
@@ -50,7 +50,7 @@
                 <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </td>
                 <td>
-                    <asp:CheckBox ID="FechaCheckBox" runat="server" />
+                    <asp:CheckBox ID="FechaCheckBox" runat="server" Text="Fecha" />
                 </td>
                 
             </tr>

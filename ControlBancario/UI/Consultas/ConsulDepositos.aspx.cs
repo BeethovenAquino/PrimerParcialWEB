@@ -23,102 +23,116 @@ namespace ControlBancario.UI.Consultas
 
         }
 
-        RepositorioBase<Deposito> repositorio = new RepositorioBase<Deposito>();
-        bool paso = false;
-        Expression<Func<Deposito, bool>> filtrar = x => true;
+        
 
         protected void ButtonBuscar_Click1(object sender, EventArgs e)
         {
+            DepositoGridView.DataBind();
+            Expression<Func<Deposito, bool>> filtro = x => true;
+            RepositorioBase<Deposito> repositorio = new RepositorioBase<Deposito>();
 
-            var DesdeDateTime = Convert.ToDateTime(DesdeTextBox.Text);
-            var HastaDateTime = Convert.ToDateTime(HastaTextBox.Text);
-            int id = 0;
-            if (TextCriterio.Text == string.Empty && FechaCheckBox.Checked == true)
-            {
-                filtrar = t => true && (t.Fecha >= DesdeDateTime.Date) && (t.Fecha <= HastaDateTime.Date);
-            }
-            else
-            {
-                filtrar = t => true;
-            }
+            int id;
+
+            DateTime desde = Convert.ToDateTime(DesdeTextBox.Text);
+            DateTime hasta = Convert.ToDateTime(HastaTextBox.Text);
+
             switch (TipodeFiltro.SelectedIndex)
             {
+                case 0://ID
 
-                //Lista todo
-                case 0:
-
+                    id = Utilities.Utils.ToInt(TextCriterio.Text);
                     if (FechaCheckBox.Checked == true)
                     {
-                        filtrar = t => true && (t.Fecha >= DesdeDateTime.Date) && (t.Fecha <= HastaDateTime.Date);
+                        filtro = x => x.DepositoID == id && (x.Fecha >= desde && x.Fecha <= hasta);
                     }
                     else
                     {
-                        filtrar = t => true;
+                        filtro = c => c.DepositoID == id;
                     }
 
-                    break;
-
-                case 1:
-                    if (paso)
+                    if (repositorio.GetList(filtro).Count() == 0)
+                    {
+                        Utilities.Utils.ShowToastr(this, " Deposito ID No Existe", "Fallido", "success");
                         return;
-                    id = int.Parse(TextCriterio.Text);
-                    if (FechaCheckBox.Checked == true)
-                    {
-                        filtrar = t => t.CuentaID == id && (t.Fecha >= DesdeDateTime.Date) && (t.Fecha <= HastaDateTime.Date);
-                    }
-                    else
-                    {
-                        filtrar = t => t.CuentaID == id;
                     }
 
                     break;
 
-                case 2:
-                    if (paso)
-                        return;
+                case 1:// CuentaId
+                    int cuentaid = Utilities.Utils.ToInt(TextCriterio.Text);
                     if (FechaCheckBox.Checked == true)
                     {
-                        filtrar = t => t.DepositoID.Equals(TextCriterio.Text) && (t.Fecha >= DesdeDateTime.Date) && (t.Fecha <= HastaDateTime.Date);
+                        filtro = x => x.CuentaID == cuentaid && (x.Fecha >= desde && x.Fecha <= hasta);
                     }
                     else
                     {
-                        filtrar = t => t.DepositoID.Equals(TextCriterio.Text);
-
+                        filtro = c => c.CuentaID == cuentaid;
                     }
-                    break;
 
-                case 3:
-
-                    if (FechaCheckBox.Checked == true)
+                    if (repositorio.GetList(filtro).Count() == 0)
                     {
-                        filtrar = t => t.Concepto.Equals(TextCriterio.Text) && (t.Fecha >= DesdeDateTime.Date) && (t.Fecha <= HastaDateTime.Date);
-                    }
-                    else
-                    {
-                        filtrar = t => t.Concepto.Equals(TextCriterio.Text);
+                        Utilities.Utils.ShowToastr(this, "Cuenta ID No Existe", "Fallido", "success");
                     }
 
                     break;
 
-                case 4:
-                    if (paso)
-                        return;
+
+
+                case 2:// Concepto
+
                     if (FechaCheckBox.Checked == true)
                     {
-                        filtrar = t => t.Monto.Equals(TextCriterio.Text) && (t.Fecha >= DesdeDateTime.Date) && (t.Fecha <= HastaDateTime.Date);
+                        filtro = x => x.Concepto.Contains(TextCriterio.Text) && (x.Fecha >= desde && x.Fecha <= hasta);
                     }
+                    else
                     {
-                        filtrar = t => t.Monto.Equals(TextCriterio.Text);
+                        filtro = c => c.Concepto.Contains(TextCriterio.Text);
+                    }
+                    if (repositorio.GetList(filtro).Count() == 0)
+                    {
+                        Utilities.Utils.ShowToastr(this, "Concepto No Existe", "Fallido", "success");
+                    }
+                    break;
+
+                case 3:// Monto
+                    decimal monto = Utilities.Utils.ToDecimal(TextCriterio.Text);
+                    if (FechaCheckBox.Checked == true)
+                    {
+                        filtro = x => x.Monto == monto && (x.Fecha >= desde && x.Fecha <= hasta);
+                    }
+                    else
+                    {
+                        filtro = c => c.Monto == monto;
                     }
 
+                    if (repositorio.GetList(filtro).Count() == 0)
+                    {
+                        Utilities.Utils.ShowToastr(this, "Monto No existe", "Fallido", "success");
+                    }
+
+                    break;
+
+                case 4://Todos
+
+                    if (FechaCheckBox.Checked == true)
+                    {
+                        filtro = x => true && (x.Fecha >= desde && x.Fecha <= hasta);
+                    }
+                    else
+                    {
+                        filtro = x => true;
+                    }
+
+                    if (repositorio.GetList(filtro).Count() == 0)
+                    {
+                        Utilities.Utils.ShowToastr(this, "No existen Dichas Cuentas", "Fallido", "success");
+                    }
                     break;
 
             }
 
-            DepositoGridView.DataSource = repositorio.GetList(filtrar);
+            DepositoGridView.DataSource = repositorio.GetList(filtro);
             DepositoGridView.DataBind();
-
-
         }
     }
 }

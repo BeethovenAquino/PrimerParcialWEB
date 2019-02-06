@@ -1,5 +1,5 @@
 ﻿using BLL;
-using ControlBancario.Utilities;
+
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -41,7 +41,7 @@ namespace ControlBancario.UI.Consultas
             {
                 case 0://ID
 
-                    id = Utils.ToInt(TextCriterio.Text);
+                    id = Utilities.Utils.ToInt(TextCriterio.Text);
                     if (FechaCheckBox.Checked == true)
                     {
                         filtro = x => x.CuentaID == id && (x.Fecha >= desde && x.Fecha <= hasta);
@@ -53,7 +53,7 @@ namespace ControlBancario.UI.Consultas
 
                     if (repositorio.GetList(filtro).Count() == 0)
                     {
-                        Utilities.Utils.ShowToastr(this, "Cuenta No Existe", "Fallido", "success");
+                        Utilities.Utils.ShowToastr(this, "ID No Existe", "Fallido", "success");
                         return;
                     }
 
@@ -72,7 +72,7 @@ namespace ControlBancario.UI.Consultas
 
                     if (repositorio.GetList(filtro).Count() == 0)
                     {
-                        Utilities.Utils.ShowToastr(this, "Nombre no existe", "Fallido", "success");
+                        Utilities.Utils.ShowToastr(this, "Dicho Nombre no existe", "Fallido", "success");
                         return;
                     }
 
@@ -82,7 +82,7 @@ namespace ControlBancario.UI.Consultas
 
                 case 2:// Balance
 
-                    decimal balance = Utils.ToDecimal(TextCriterio.Text);
+                    decimal balance = Utilities.Utils.ToDecimal(TextCriterio.Text);
                     if (FechaCheckBox.Checked == true)
                     {
                         filtro = x => x.Balance == balance && (x.Fecha >= desde && x.Fecha <= hasta);
@@ -93,7 +93,7 @@ namespace ControlBancario.UI.Consultas
                     }
                     if (repositorio.GetList(filtro).Count() == 0)
                     {
-                        Utilities.Utils.ShowToastr(this, "Balance no encontrado", "Fallido", "success");
+                        Utilities.Utils.ShowToastr(this, "Dicho Balance No existe", "Fallido", "success");
                         return;
                     }
                     break;
@@ -111,7 +111,7 @@ namespace ControlBancario.UI.Consultas
 
                     if (repositorio.GetList(filtro).Count() == 0)
                     {
-                        Utilities.Utils.ShowToastr(this, "No existen dichas cuentas", "Fallido", "success");
+                        Utilities.Utils.ShowToastr(this, "No Existen Cuentas", "Fallido", "success");
                         return;
                     }
                     break;

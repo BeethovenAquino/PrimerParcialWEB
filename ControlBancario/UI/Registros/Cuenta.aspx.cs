@@ -180,7 +180,6 @@ namespace ControlBancario.UI.Registros
             else
             {
                 Utilities.Utils.ShowToastr(this, "Usuario no encontrado", "Fallido", "success");
-
             }
 
         }

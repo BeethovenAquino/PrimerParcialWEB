@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DepositoBLL.cs" />
+    <Compile Include="PrestamoBLL.cs" />
     <Compile Include="RepositorioBase.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -58,7 +58,7 @@
                           <div class="dropdown-menu">
                             <a class="dropdown-item" runat="server" href="~/UI/Registros/Cuenta.aspx">Resgitro Cuenta</a>
                             <a class="dropdown-item" runat="server" href="~/UI/Registros/Depositos.aspx">Registro Depositos</a>
-                            
+                            <a class="dropdown-item" runat="server" href="~/UI/Registros/Prestamos.aspx">Registro Prestamos</a>
                           </div>
                         </div>
                                  <div class="dropdown">

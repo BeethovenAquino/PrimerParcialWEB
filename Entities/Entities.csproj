@@ -43,8 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cuentas.cs" />
+    <Compile Include="Cuotas.cs" />
     <Compile Include="Deposito.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="Prestamo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

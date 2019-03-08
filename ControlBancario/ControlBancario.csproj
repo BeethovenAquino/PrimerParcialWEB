@@ -110,6 +110,7 @@
     <Content Include="UI\Consultas\ConsulDepositos.aspx" />
     <Content Include="UI\Registros\Cuenta.aspx" />
     <Content Include="UI\Registros\Depositos.aspx" />
+    <Content Include="UI\Registros\Prestamos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,13 @@
     </Compile>
     <Compile Include="UI\Registros\Depositos.aspx.designer.cs">
       <DependentUpon>Depositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\Prestamos.aspx.cs">
+      <DependentUpon>Prestamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\Prestamos.aspx.designer.cs">
+      <DependentUpon>Prestamos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>

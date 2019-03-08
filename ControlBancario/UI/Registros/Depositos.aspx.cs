@@ -68,21 +68,7 @@ namespace ControlBancario.UI.Registros
 
         }
 
-        void MostrarMensaje(TiposMensajes tipo, string mensaje)
-
-        {
-
-            ErrorLabel.Text = mensaje;
-
-            if (tipo == TiposMensajes.Success)
-
-                ErrorLabel.CssClass = "alert-success";
-
-            else
-
-                ErrorLabel.CssClass = "alert-danger";
-
-        }
+        
 
         private void LlenaComboCuentaID()
         {

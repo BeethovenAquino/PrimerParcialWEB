@@ -328,7 +328,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>cuenta</DataSetName>
-        <Top>0.17639cm</Top>
+        <Top>1.55222cm</Top>
         <Left>0cm</Left>
         <Height>1.2cm</Height>
         <Width>10cm</Width>
@@ -349,6 +349,41 @@
           </Border>
         </Style>
       </Line>
+      <Textbox Name="Textbox4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Reporte de Cuenta</Value>
+                <Style>
+                  <FontFamily>Times New Roman</FontFamily>
+                  <FontSize>20pt</FontSize>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>0.14111cm</Top>
+        <Left>4.3015cm</Left>
+        <Height>1.0445cm</Height>
+        <Width>6.53713cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <BackgroundColor>LightBlue</BackgroundColor>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>2in</Height>
     <Style />

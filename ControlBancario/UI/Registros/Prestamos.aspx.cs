@@ -18,7 +18,7 @@ namespace ControlBancario.UI.Registros
         decimal tiempo = 0;
         decimal interesporciento = 0;
         DateTime Fecha;
-        Decimal MontoCuota=0;
+        Decimal MontoCuota = 0;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -102,20 +102,20 @@ namespace ControlBancario.UI.Registros
             Capital = Utilities.Utils.ToDecimal(CapitalTexbox.Text);
             MontoApagar = Capital + (Capital * interesporciento);
             tiempo = Utilities.Utils.ToDecimal(TiempoTextBox.Text);
-            interes = Capital * interesporciento/tiempo;
+            interes = Capital * interesporciento / tiempo;
             Fecha = DateTime.Now;
             Capital = Capital / tiempo;
             MontoCuota = MontoApagar / tiempo;
             Balance = MontoApagar;
 
-            
-            
+
+
 
             for (int i = 0; i < tiempo; i++)
             {
                 Balance -= MontoCuota;
-                
-                
+
+
                 if (i == 0)
                 {
                     cuotas.Add(new Cuotas(0, 0, Fecha, MontoCuota, interes, Capital, Balance));
@@ -123,13 +123,13 @@ namespace ControlBancario.UI.Registros
                 else
                     cuotas.Add(new Cuotas(0, 0, Fecha.AddMonths(i), MontoCuota, interes, Capital, Balance));
 
-                
+
 
             }
             return cuotas;
-        }   
+        }
 
-            protected void NuevoButton_Click(object sender, EventArgs e)
+        protected void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
@@ -143,7 +143,7 @@ namespace ControlBancario.UI.Registros
 
             PrestamoBLL repositorio = new PrestamoBLL();
             Prestamo prestamo = LlenaClase();
-            
+
             RepositorioBase<Cuentas> cuentas = new RepositorioBase<Cuentas>();
 
             var validar = cuentas.Buscar(Utilities.Utils.ToInt(CuentaDropDownList.SelectedValue));
@@ -222,9 +222,7 @@ namespace ControlBancario.UI.Registros
             else
             {
                 repositorio.Eliminar(id);
-
-
-
+                
                 Utilities.Utils.ShowToastr(this, "Elimino Correctamente", "Exito", "success");
                 Limpiar();
             }
@@ -234,15 +232,16 @@ namespace ControlBancario.UI.Registros
         protected void CalcularButton_Click(object sender, EventArgs e)
         {
             int id;
-            if (Convert.ToInt32(CuentaDropDownList.SelectedValue)!= 0)
+            if (Convert.ToInt32(CuentaDropDownList.SelectedValue) != 0)
                 id = Convert.ToInt32(CuentaDropDownList.SelectedValue);
 
 
-            if (Convert.ToInt32(CuentaDropDownList.SelectedValue) != 0){
+            if (Convert.ToInt32(CuentaDropDownList.SelectedValue) != 0)
+            {
                 ViewState["Cuota"] = CalculodeCuotas();
             }
-                
-          
+
+
             CuotasGridView.DataSource = ViewState["Cuota"];
             CuotasGridView.DataBind();
 
@@ -271,6 +270,11 @@ namespace ControlBancario.UI.Registros
                 Utilities.Utils.ShowToastr(this, "el ID registrado no existe", "Fallido", "success");
             }
 
+        }
+
+        protected void ReporteButton_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -108,6 +108,7 @@
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="UI\Consultas\ConsulCuentas.aspx" />
     <Content Include="UI\Consultas\ConsulDepositos.aspx" />
+    <Content Include="UI\Consultas\ConsulPrestamo.aspx" />
     <Content Include="UI\Registros\Cuenta.aspx" />
     <Content Include="UI\Registros\Depositos.aspx" />
     <Content Include="UI\Registros\Prestamos.aspx" />
@@ -147,6 +148,13 @@
     </Compile>
     <Compile Include="UI\Consultas\ConsulDepositos.aspx.designer.cs">
       <DependentUpon>ConsulDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsulPrestamo.aspx.cs">
+      <DependentUpon>ConsulPrestamo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsulPrestamo.aspx.designer.cs">
+      <DependentUpon>ConsulPrestamo.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\Cuenta.aspx.cs">
       <DependentUpon>Cuenta.aspx</DependentUpon>
@@ -192,7 +200,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\CuentaReport.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\CuentaReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

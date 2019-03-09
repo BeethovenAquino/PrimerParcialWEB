@@ -45,15 +45,15 @@ namespace BLL
 
             try
             {
-                Deposito depositos = contexto.Depositos.Find(id);
+                Prestamo prestamo = contexto.Prestamo.Find(id);
 
-                if (depositos != null)
+                if (prestamo != null)
                 {
-                    var cuenta = contexto.Cuenta.Find(depositos.CuentaID);
+                    var cuenta = contexto.Cuenta.Find(prestamo.CuentaID);
                     //Incrementar la cantidad
-                    cuenta.Balance -= depositos.Monto;
+                    cuenta.Balance -= prestamo.TotalAPagar;
 
-                    contexto.Entry(depositos).State = EntityState.Deleted;
+                    contexto.Entry(prestamo).State = EntityState.Deleted;
 
                 }
 

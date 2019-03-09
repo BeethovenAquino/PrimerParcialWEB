@@ -68,8 +68,11 @@
                   <div class="dropdown-menu">
                     <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsulCuentas.aspx">Consulta Cuenta</a>
                     <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsulDepositos.aspx">Consulta Depositos</a>
+                      <a class="dropdown-item" runat="server" href="~/UI/Consultas/ConsulPrestamo.aspx">Consulta Prestamo</a>
                     
                   </div>
+
+
                 </div>
                <%-- <li class="nav-item">
                     <a runat="server" onserverclick="Unnamed_ServerClick" class="nav-link" href="#">Login out</a>

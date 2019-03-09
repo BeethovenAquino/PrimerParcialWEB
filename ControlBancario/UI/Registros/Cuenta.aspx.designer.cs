@@ -175,6 +175,15 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.Button EliminarButton;
         
         /// <summary>
+        /// ReporteButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ReporteButton;
+        
+        /// <summary>
         /// ValidationSummary1 control.
         /// </summary>
         /// <remarks>

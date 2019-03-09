@@ -183,5 +183,10 @@ namespace ControlBancario.UI.Registros
             }
 
         }
+
+        protected void ReporteButton_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script>window.open('../../CuentaReport.rdlc','_blanck');</script");
+        }
     }
 }

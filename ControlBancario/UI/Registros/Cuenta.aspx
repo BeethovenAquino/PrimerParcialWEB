@@ -6,7 +6,7 @@
 
     <div class="form-group container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
 
                 <div class="Container-fluid">
                     <div class="align-content-center">
@@ -94,8 +94,8 @@
 
 
                        <%-- Botones--%>
-                        <div class="panel-footer">
-                            <div class="text-center">
+                       <div class="panel-footer">
+                             <div class="text-center">
 
                                 <asp:Label class="text-center " ID="ErrorLabel" runat="server" Text=""></asp:Label>
 
@@ -108,7 +108,7 @@
                                 <asp:Button ID="ReporteButton" runat="server" class="btn btn-success" Text="Imrpimir" OnClick="ReporteButton_Click" />
                             </div>
                         </div>
-                    <br />
+                 
                 </div>
             </div>
         </div>

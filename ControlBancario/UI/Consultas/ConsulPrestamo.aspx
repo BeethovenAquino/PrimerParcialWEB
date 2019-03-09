@@ -13,6 +13,7 @@
                     <asp:ListItem>Interes</asp:ListItem>
                      <asp:ListItem>Tiempo</asp:ListItem>
                     <asp:ListItem>capital</asp:ListItem>
+                    <asp:ListItem>Todos</asp:ListItem>
                     
 
                 </asp:DropDownList>
@@ -65,6 +66,7 @@
                     <AlternatingRowStyle BackColor="LightSkyBlue" />
                     <Columns>
                         <asp:BoundField DataField="PrestamoID" HeaderText="PrestamoID" />
+                        <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                         <asp:BoundField DataField="CuentaID" HeaderText="CuentaID" />
                         <asp:BoundField DataField="Interes" HeaderText="Interes" />
                         <asp:BoundField DataField="Tiempo" HeaderText="Tiempo" />

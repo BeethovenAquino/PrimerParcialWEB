@@ -61,21 +61,7 @@ namespace ControlBancario.UI.Registros
         }
 
 
-        void MostrarMensaje(TiposMensajes tipo, string mensaje)
-
-        {
-
-            ErrorLabel.Text = mensaje;
-
-            if (tipo == TiposMensajes.Success)
-
-                ErrorLabel.CssClass = "alert-success";
-
-            else
-
-                ErrorLabel.CssClass = "alert-danger";
-
-        }
+       
 
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
@@ -93,13 +79,11 @@ namespace ControlBancario.UI.Registros
 
             if (Page.IsValid)
             {
-                if (CuentaIDTextbox.Text == "0")
+                if (Utilities.Utils.ToInt(CuentaIDTextbox.Text) >=0)
                 {
                     paso = repositorio.Guardar(cuenta);
 
                 }
-
-
                 else
                 {
                     var verificar = repositorio.Buscar(Utilities.Utils.ToInt(CuentaIDTextbox.Text));
@@ -110,7 +94,7 @@ namespace ControlBancario.UI.Registros
                     }
                     else
                     {
-                        Utilities.Utils.ShowToastr(this, "Cuenta No Existo", "Fallido", "success");
+                        Utilities.Utils.ShowToastr(this, "Cuenta No Existe", "Fallido", "error");
                         return;
                     }
                 }
@@ -118,13 +102,13 @@ namespace ControlBancario.UI.Registros
                 if (paso)
 
                 {
-                    Utilities.Utils.ShowToastr(this, "Cuenta Registrada", "Exito", "success");
+                    Utilities.Utils.ShowToastr(this, "Cuenta Registrada", "Exito", "Exito");
                 }
 
                 else
 
                 {
-                    Utilities.Utils.ShowToastr(this, "No pudo Guardarse la cuenta", "Exito", "success");
+                    Utilities.Utils.ShowToastr(this, "No pudo Guardarse la cuenta", "ERROR", "error");
                 }
                 Limpiar();
                 return;
@@ -135,16 +119,14 @@ namespace ControlBancario.UI.Registros
         {
             
             RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
-
-
-
+            
             int id = Utilities.Utils.ToInt(CuentaIDTextbox.Text);
             var cuenta = repositorio.Buscar(id);
-
+            
 
             if (cuenta == null)
             {
-                Utilities.Utils.ShowToastr(this, "No se puede Eliminar", "Fallido", "success");
+                Utilities.Utils.ShowToastr(this, "No se puede Eliminar", "error");
             }
 
             //Si tiene algun prestamo o deposito enlazado no elimina
@@ -152,15 +134,14 @@ namespace ControlBancario.UI.Registros
 
             if (repositorios.GetList(x => x.CuentaID == id).Count() > 0)
             {
-                Utilities.Utils.ShowToastr(this, "No se puede Eliminar, La cuenta contiene depositos", "contiene Depositos", "success");
+                Utilities.Utils.ShowToastr(this, "No se puede Eliminar, La cuenta contiene depositos","error");
 
             }
 
             else
             {
                 repositorio.Eliminar(id);
-                
-                Utilities.Utils.ShowToastr(this, "Cuenta a sido Eliminada", "Exito", "success");
+                Utilities.Utils.ShowToastr(this, "Cuenta Eliminada", "Exito");
                 Limpiar();
             }
         }
@@ -171,22 +152,26 @@ namespace ControlBancario.UI.Registros
         {
             RepositorioBase<Cuentas> repositorio = new RepositorioBase<Cuentas>();
 
-
-            Cuentas cuentas = repositorio.Buscar(Convert.ToInt32(CuentaIDTextbox.Text));
+            var cuentas = repositorio.Buscar(
+                Utilities.Utils.ToInt(CuentaIDTextbox.Text));
             if (cuentas != null)
             {
                 LlenaCampos(cuentas);
+                Utilities.Utils.ShowToastr(this, "Busqueda exitosa", "Exito");
             }
             else
             {
-                Utilities.Utils.ShowToastr(this, "Usuario no encontrado", "Fallido", "success");
+                Limpiar();
+                Utilities.Utils.ShowToastr(this,
+                    "No se pudo encontrar la cuenta ",
+                    "Error", "error");
             }
-
+           
         }
 
         protected void ReporteButton_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>window.open('../../CuentaReport.rdlc','_blanck');</script");
+            Response.Write("<script>window.open('~/UI/Reportes/ReporteCuenta.aspx','_blanck');</script");
         }
     }
 }

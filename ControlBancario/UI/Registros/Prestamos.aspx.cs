@@ -171,7 +171,7 @@ namespace ControlBancario.UI.Registros
                         }
                         else
                         {
-                            Utilities.Utils.ShowToastr(this, "No se encuentra el ID", "Fallo", "success");
+                            Utilities.Utils.ShowToastr(this, "No se encuentra el ID", "Error","error");
                             return;
                         }
                     }
@@ -179,14 +179,14 @@ namespace ControlBancario.UI.Registros
                     if (paso)
 
                     {
-                        Utilities.Utils.ShowToastr(this, "Registro Con Exito", "Exito", "success");
+                        Utilities.Utils.ShowToastr(this, "Cuenta Registrada", "Exito", "Exito");
 
                     }
 
                     else
 
                     {
-                        Utilities.Utils.ShowToastr(this, "No se pudo Guardar", "Fallo", "success");
+                        Utilities.Utils.ShowToastr(this, "No se pudo Guardar", "Error","error");
                     }
                     Limpiar();
                     return;
@@ -196,7 +196,7 @@ namespace ControlBancario.UI.Registros
             }
             else
             {
-                Utilities.Utils.ShowToastr(this, "El numero de cuenta no existe", "Fallo", "success");
+                Utilities.Utils.ShowToastr(this, "El numero de cuenta no existe", "Error","Error");
                 return;
 
 
@@ -216,14 +216,14 @@ namespace ControlBancario.UI.Registros
 
             if (depositos == null)
             {
-                Utilities.Utils.ShowToastr(this, "El deposito no existe", "Fallo", "success");
+                Utilities.Utils.ShowToastr(this, "El Prestamo no existe", "Error","error");
             }
 
             else
             {
                 repositorio.Eliminar(id);
                 
-                Utilities.Utils.ShowToastr(this, "Elimino Correctamente", "Exito", "success");
+                Utilities.Utils.ShowToastr(this, "Elimino Correctamente", "Exito","Exito");
                 Limpiar();
             }
 
@@ -263,11 +263,11 @@ namespace ControlBancario.UI.Registros
             {
                 LlenaCampos(prestamo);
 
-                Utilities.Utils.ShowToastr(this, "Se ha Encontrado su deposito", "Exito", "success");
+                Utilities.Utils.ShowToastr(this, "Se ha Encontrado su deposito", "Exito","Exito");
             }
             else
             {
-                Utilities.Utils.ShowToastr(this, "el ID registrado no existe", "Fallido", "success");
+                Utilities.Utils.ShowToastr(this, "el ID registrado no existe", "Error","error");
             }
 
         }

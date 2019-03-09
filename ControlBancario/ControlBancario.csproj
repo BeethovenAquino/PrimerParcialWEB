@@ -161,6 +161,7 @@
     <Content Include="UI\Registros\Cuenta.aspx" />
     <Content Include="UI\Registros\Depositos.aspx" />
     <Content Include="UI\Registros\Prestamos.aspx" />
+    <Content Include="UI\Reportes\ReportePrestamo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -238,6 +239,13 @@
     </Compile>
     <Compile Include="UI\Registros\Prestamos.aspx.designer.cs">
       <DependentUpon>Prestamos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportePrestamo.aspx.cs">
+      <DependentUpon>ReportePrestamo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportePrestamo.aspx.designer.cs">
+      <DependentUpon>ReportePrestamo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>

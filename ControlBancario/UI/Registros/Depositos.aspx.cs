@@ -199,7 +199,7 @@ namespace ControlBancario.UI.Registros
             }
             else
             {
-                Utilities.Utils.ShowToastr(this, "el ID registrado no existe", "Fallido", "success");
+                Utilities.Utils.ShowToastr(this, "el ID registrado no existe", "Fallido", "danger");
             }
         }
     }

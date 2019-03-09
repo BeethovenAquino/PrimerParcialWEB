@@ -125,6 +125,17 @@
     <Content Include="ControlBancarioDbDataSet.xss">
       <DependentUpon>ControlBancarioDbDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="ControlBancariooDbDataSet.xsc">
+      <DependentUpon>ControlBancariooDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ControlBancariooDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ControlBancariooDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ControlBancariooDbDataSet.xss">
+      <DependentUpon>ControlBancariooDbDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
     <Content Include="UI\Reportes\ReporteCuenta.aspx" />
     <Content Include="Scripts\jquery-1.6.3.js" />
@@ -157,6 +168,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ControlBancarioDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ControlBancariooDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlBancariooDbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -247,6 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UI\Reportes\CuentaReport.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\PrestamoReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

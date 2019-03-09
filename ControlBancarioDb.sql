@@ -1,3 +1,0 @@
-create database ControlBancarioDb
-Go
-use ControlBancarioDb

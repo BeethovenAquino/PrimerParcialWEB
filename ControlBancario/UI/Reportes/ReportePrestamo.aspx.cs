@@ -20,17 +20,19 @@ namespace ControlBancario.UI.Reportes
 
             //prestamo.Add(new Prestamo(Prestamos.PrestamoID, Prestamos.Interes, Prestamos.CuentaID, Prestamos.Capital, Prestamos.Tiempo, Prestamos.Fecha, Prestamos.TotalAPagar));
 
-            PrestamoReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
-            PrestamoReportViewer.Reset();
+            if (!Page.IsPostBack)
+            {
+                PrestamoReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
+                PrestamoReportViewer.Reset();
+                PrestamoReportViewer.LocalReport.ReportPath = Server.MapPath(@"..\Reportes\PrestamoReport.rdlc");
 
-            PrestamoReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reporte\ReportePrestamo.rdlc");
+                PrestamoReportViewer.LocalReport.DataSources.Clear();
 
-            PrestamoReportViewer.LocalReport.DataSources.Clear();
+                PrestamoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", prestamo));
+                PrestamoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("CuotasDt", repositorio.GetList(x => true).Last().Detalle));
 
-            PrestamoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("PrestamoDataset", prestamo));
-            PrestamoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("CuotaDatSet", repositorio.GetList(x => true).Last().Detalle));
-
-            PrestamoReportViewer.LocalReport.Refresh();
+                PrestamoReportViewer.LocalReport.Refresh();
+            }
         }
     }
 }

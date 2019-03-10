@@ -117,6 +117,17 @@
     <Content Include="ControlBancarioDbDataSet.xsc">
       <DependentUpon>ControlBancarioDbDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="ControlBancarioCuotabDataSet.xsc">
+      <DependentUpon>ControlBancarioCuotabDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ControlBancarioCuotabDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ControlBancarioCuotabDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ControlBancarioCuotabDataSet.xss">
+      <DependentUpon>ControlBancarioCuotabDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="ControlBancarioDbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ControlBancarioDbDataSet.Designer.cs</LastGenOutput>
@@ -176,6 +187,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlBancarioCuotabDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlBancarioCuotabDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ControlBancarioDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

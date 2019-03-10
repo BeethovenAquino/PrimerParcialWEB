@@ -5,6 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style>
+        html, body, form, #div1 {
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
      <form id="form2" runat="server">

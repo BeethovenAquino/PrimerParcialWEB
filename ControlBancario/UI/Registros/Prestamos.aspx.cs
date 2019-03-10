@@ -108,9 +108,7 @@ namespace ControlBancario.UI.Registros
             MontoCuota = MontoApagar / tiempo;
             Balance = MontoApagar;
 
-
-
-
+            
             for (int i = 0; i < tiempo; i++)
             {
                 Balance -= MontoCuota;
@@ -122,9 +120,7 @@ namespace ControlBancario.UI.Registros
                 }
                 else
                     cuotas.Add(new Cuotas(0, 0, Fecha.AddMonths(i), MontoCuota, interes, Capital, Balance));
-
-
-
+                
             }
             return cuotas;
         }
@@ -274,7 +270,10 @@ namespace ControlBancario.UI.Registros
 
         protected void ReporteButton_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>window.open('../../ReportePrestamo.aspx','_blanck');</script");
+            Response.Write("<script>window.open('../Reportes/ReportePrestamo.aspx','_blanck');</script");
+            //Response.Redirect("~/Reportes/ReportePrestamo.aspx");
+
+            
         }
     }
 }

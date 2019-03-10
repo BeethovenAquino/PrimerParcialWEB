@@ -21,7 +21,7 @@ namespace ControlBancario
             {
                 CuentaReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
                 CuentaReportViewer.Reset();
-
+               
                 CuentaReportViewer.LocalReport.ReportPath = Server.MapPath(@"../Reportes/CuentaReport.rdlc");
 
                 CuentaReportViewer.LocalReport.DataSources.Clear();

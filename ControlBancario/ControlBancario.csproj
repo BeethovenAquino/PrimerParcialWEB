@@ -136,6 +136,17 @@
     <Content Include="ControlBancariooDbDataSet.xss">
       <DependentUpon>ControlBancariooDbDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="ControlBancarioooDbDataSet.xsc">
+      <DependentUpon>ControlBancarioooDbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ControlBancarioooDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ControlBancarioooDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ControlBancarioooDbDataSet.xss">
+      <DependentUpon>ControlBancarioooDbDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
     <Content Include="UI\Reportes\ReporteCuenta.aspx" />
     <Content Include="Scripts\jquery-1.6.3.js" />
@@ -158,7 +169,7 @@
     <Content Include="UI\Consultas\ConsulCuentas.aspx" />
     <Content Include="UI\Consultas\ConsulDepositos.aspx" />
     <Content Include="UI\Consultas\ConsulPrestamo.aspx" />
-    <Content Include="UI\Registros\RegistroCuenta.aspx" />
+    <Content Include="UI\Registros\Cuenta.aspx" />
     <Content Include="UI\Registros\Depositos.aspx" />
     <Content Include="UI\Registros\Prestamos.aspx" />
     <Content Include="UI\Reportes\ReportePrestamo.aspx" />
@@ -174,6 +185,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ControlBancariooDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ControlBancarioooDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlBancarioooDbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -219,12 +235,12 @@
     <Compile Include="UI\Consultas\ConsulPrestamo.aspx.designer.cs">
       <DependentUpon>ConsulPrestamo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Registros\RegistroCuenta.aspx.cs">
-      <DependentUpon>RegistroCuenta.aspx</DependentUpon>
+    <Compile Include="UI\Registros\Cuenta.aspx.cs">
+      <DependentUpon>Cuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\Registros\RegistroCuenta.aspx.designer.cs">
-      <DependentUpon>RegistroCuenta.aspx</DependentUpon>
+    <Compile Include="UI\Registros\Cuenta.aspx.designer.cs">
+      <DependentUpon>Cuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\Depositos.aspx.cs">
       <DependentUpon>Depositos.aspx</DependentUpon>
@@ -271,6 +287,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UI\Reportes\CuentaReport.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\CuentaReporteeeReport.rdlc" />
     <EmbeddedResource Include="UI\Reportes\PrestamoReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>

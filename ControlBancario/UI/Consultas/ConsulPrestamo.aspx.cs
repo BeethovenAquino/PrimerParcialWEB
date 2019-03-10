@@ -148,5 +148,10 @@ namespace ControlBancario.UI.Consultas
             PrestamoGridView.DataSource = repositorio.GetList(filtro);
             PrestamoGridView.DataBind();
         }
+
+        protected void ReporteButton_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script>window.open('../Reportes/ConsultaPrestamo.aspx','_blanck');</script");
+        }
     }
 }

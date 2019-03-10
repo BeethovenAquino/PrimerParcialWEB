@@ -73,12 +73,15 @@
                         <asp:BoundField DataField="Capital" HeaderText="Capital" />
                         <asp:BoundField DataField="TotalAPagar" HeaderText="Total a pagar" />
 
-                        
-
-
                     </Columns>
                     <HeaderStyle BackColor="LightCyan" Font-Bold="True" />
                 </asp:GridView>
+
+                 <div class="panel-footer">
+                            <div class="text-center">
+                        <asp:Button ID="ReporteButton" runat="server" class="btn btn-success" Text="Imrpimir" OnClick="ReporteButton_Click" />
+                                </div>
+                            </div>
             </div>
         </div>
     </div>

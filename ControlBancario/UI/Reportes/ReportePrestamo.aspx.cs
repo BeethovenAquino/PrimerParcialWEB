@@ -28,7 +28,7 @@ namespace ControlBancario.UI.Reportes
 
                 PrestamoReportViewer.LocalReport.DataSources.Clear();
 
-                PrestamoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", prestamo));
+                PrestamoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", repositorio.GetList(x=>true)));
                 PrestamoReportViewer.LocalReport.DataSources.Add(new ReportDataSource("CuotasDt", repositorio.GetList(x => true).Last().Detalle));
 
                 PrestamoReportViewer.LocalReport.Refresh();

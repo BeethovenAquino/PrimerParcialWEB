@@ -40,13 +40,13 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
-        /// RegularExpressionValidator7 control.
+        /// ValidaID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator7;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidaID;
         
         /// <summary>
         /// Label8 control.
@@ -112,13 +112,22 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox CapitalTexbox;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// Valida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Valida;
+        
+        /// <summary>
+        /// ValidaCapital control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidaCapital;
         
         /// <summary>
         /// Label2 control.
@@ -139,13 +148,22 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox InteresesTextBox;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// ValidaMontoNUM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidaMontoNUM;
+        
+        /// <summary>
+        /// ValidaInteres control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidaInteres;
         
         /// <summary>
         /// Label4 control.
@@ -166,13 +184,22 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox TiempoTextBox;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// ValidaMeses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidaMeses;
+        
+        /// <summary>
+        /// ValidaMeses2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidaMeses2;
         
         /// <summary>
         /// CalcularButton control.

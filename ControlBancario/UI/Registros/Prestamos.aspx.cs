@@ -64,6 +64,7 @@ namespace ControlBancario.UI.Registros
             CapitalTexbox.Text = string.Empty;
             InteresesTextBox.Text = string.Empty;
             TiempoTextBox.Text = string.Empty;
+            TotalTextBox.Text = string.Empty;
             CuotasGridView.DataSource = null;
             CuotasGridView.DataBind();
             LlenaComboCuentaID();

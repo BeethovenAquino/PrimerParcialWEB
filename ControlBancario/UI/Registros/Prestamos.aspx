@@ -29,7 +29,7 @@
                                         <asp:TextBox ID="PrestamoIDTextbox" runat="server" class="form-control" Height="30" Width="200" ValidationGroup="Buscar"></asp:TextBox>
                                     </td>
                                     <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:Button ID="BuscarButton" ValidationGroup="Buscar" runat="server" class="btn btn-info" Text="Buscar" OnClick="BuscarButton_Click" />
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="PrestamoIDTextbox" ErrorMessage="Solo Numeros y Numeros positivos" ForeColor="Red" ValidationExpression="\d+" ValidationGroup="Buscar"></asp:RegularExpressionValidator>
+                                        <asp:RegularExpressionValidator ID="ValidaID" runat="server" ErrorMessage='solo acepta numeros' ControlToValidate="PrestamoIDTextbox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
                                     </td>
                                 </tr>
                             </table>
@@ -91,8 +91,8 @@
                                         <asp:TextBox ID="CapitalTexbox" runat="server" class="form-control" Height="30" Width="300" MaxLength="80"></asp:TextBox>
                                     </td>
                                     <td>
-                                          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Campos Obligatorios" ControlToValidate="CapitalTexbox" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
-                                        <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Solo Numeros" ControlToValidate="MontoTexbox" Font-Bold="True" ForeColor="Red" ValidationExpression="([0-9]|-)*">*</asp:RegularExpressionValidator>--%>
+                                         <asp:RegularExpressionValidator ID="Valida" runat="server" ErrorMessage='solo acepta numeros' ControlToValidate="CapitalTexbox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
+                                        <asp:RequiredFieldValidator ID="ValidaCapital" runat="server" ErrorMessage="El campo &quot;Capital&quot; esta vacio" ControlToValidate="CapitalTexbox" ForeColor="Red" Display="Dynamic" ToolTip="Campo  es obligatorio" ValidationGroup="Guardar">*</asp:RequiredFieldValidator>
                                        
                                     </td>
                                 </tr>
@@ -115,8 +115,8 @@
                                         <asp:TextBox ID="InteresesTextBox" runat="server" class="form-control" Height="30" Width="300" MaxLength="80"></asp:TextBox>
                                     </td>
                                     <td>
-                                          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Campos Obligatorios" ControlToValidate="InteresesTextBox" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
-                                        <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Solo Numeros" ControlToValidate="MontoTexbox" Font-Bold="True" ForeColor="Red" ValidationExpression="([0-9]|-)*">*</asp:RegularExpressionValidator>--%>
+                                          <asp:RegularExpressionValidator ID="ValidaMontoNUM" runat="server" ErrorMessage=' solo acepta numeros' ControlToValidate="InteresesTextBox" ValidationExpression="^[0.0-9.0]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
+                                         <asp:RequiredFieldValidator ID="ValidaInteres" runat="server" ErrorMessage="El campo &quot;Monto&quot; esta vacio" ControlToValidate="InteresesTextBox" ForeColor="Red" Display="Dynamic" ToolTip="Campo obligatorio" ValidationGroup="Guardar">*</asp:RequiredFieldValidator>
                                        
                                     </td>
                                 </tr>
@@ -138,8 +138,8 @@
                                         <asp:TextBox ID="TiempoTextBox" runat="server" class="form-control" Height="30" Width="300" MaxLength="80"></asp:TextBox>
                                     </td>
                                     <td>
-                                          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Campos Obligatorios" ControlToValidate="TiempoTextBox" Font-Bold="True" ForeColor="Red">*</asp:RequiredFieldValidator>
-                                        <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Solo Numeros" ControlToValidate="MontoTexbox" Font-Bold="True" ForeColor="Red" ValidationExpression="([0-9]|-)*">*</asp:RegularExpressionValidator>--%>
+                                          <asp:RegularExpressionValidator ID="ValidaMeses" runat="server" ErrorMessage='Campo solo acepta numeros' ControlToValidate="TiempoTextBox" ValidationExpression="^[0-9]*" Text="*" ForeColor="Red" Display="Dynamic" ToolTip="Entrada no valida" ValidationGroup="Guardar"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="ValidaMeses2" runat="server" ErrorMessage="El campo &quot;Tiempo en meses&quot; esta vacio" ControlToValidate="TiempoTextBox" ForeColor="Red" Display="Dynamic" ToolTip="Campo es obligatorio" ValidationGroup="Guardar">*</asp:RequiredFieldValidator>
                                        
                                     </td>
                                 </tr>
@@ -156,7 +156,7 @@
                     </div>
                 </div>
 
-                 <%--TiempoTextbox--%>
+                 <%--Total--%>
                         <div>
                             <table>
                                 <tr>

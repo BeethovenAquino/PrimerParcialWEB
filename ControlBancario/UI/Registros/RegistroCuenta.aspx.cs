@@ -171,7 +171,7 @@ namespace ControlBancario.UI.Registros
 
         protected void ReporteButton_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>window.open('~/UI/Reportes/ReporteCuenta.aspx','_blanck');</script");
+            Response.Write("<script>window.open('../Reportes/ReporteCuenta.aspx','_blanck');</script");
         }
     }
 }

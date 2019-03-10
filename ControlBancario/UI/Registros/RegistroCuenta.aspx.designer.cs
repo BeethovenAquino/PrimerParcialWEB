@@ -40,13 +40,13 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.Button BuscarButton;
         
         /// <summary>
-        /// RegularExpressionValidator7 control.
+        /// ValidaID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator7;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidaID;
         
         /// <summary>
         /// Label8 control.
@@ -130,13 +130,22 @@ namespace ControlBancario.UI.Registros {
         protected global::System.Web.UI.WebControls.TextBox BalanceTexbox;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// ValidaBalanceNUM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidaBalanceNUM;
+        
+        /// <summary>
+        /// ValidaBalance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidaBalance;
         
         /// <summary>
         /// ErrorLabel control.

@@ -20,11 +20,11 @@ namespace ControlBancario
                 CuentaReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
                 CuentaReportViewer.Reset();
 
-                CuentaReportViewer.LocalReport.ReportPath = Server.MapPath(@"~Reportes\CuentaReport.rdlc");
+                CuentaReportViewer.LocalReport.ReportPath = Server.MapPath(@"../Reportes/CuentaReport.rdlc");
 
                 CuentaReportViewer.LocalReport.DataSources.Clear();
 
-                CuentaReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", repositorio.GetList(x => true)));
+                CuentaReportViewer.LocalReport.DataSources.Add(new ReportDataSource("cuenta", repositorio.GetList(x => true)));
                 CuentaReportViewer.LocalReport.Refresh();
             }
         }

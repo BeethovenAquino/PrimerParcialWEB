@@ -71,6 +71,8 @@
                         <asp:BoundField DataField="Interes" HeaderText="Interes" />
                         <asp:BoundField DataField="Tiempo" HeaderText="Tiempo" />
                         <asp:BoundField DataField="Capital" HeaderText="Capital" />
+                        <asp:BoundField DataField="TotalAPagar" HeaderText="Total a pagar" />
+
                         
 
 

@@ -18,7 +18,7 @@ namespace BLL
             _contexto = new Contexto();
         }
 
-        public bool Guardar(T entity)
+        public virtual bool Guardar(T entity)
         {
             bool paso = false;
 
@@ -57,7 +57,7 @@ namespace BLL
         }
 
        
-        public bool Eliminar(int id)
+        public virtual bool Eliminar(int id)
         {
             bool paso = false;
             try

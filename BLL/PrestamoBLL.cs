@@ -11,20 +11,26 @@ namespace BLL
 {
     public class PrestamoBLL : RepositorioBase<Prestamo>
     {
-        public bool Guardar(Prestamo entity)
+        public override bool Guardar(Prestamo entity)
         {
+            decimal total = 0;
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
+                foreach (var item in entity.Detalle)
+                {
+                    total += item.Interes + item.Capital;
+                }
 
                 if (contexto.Prestamo.Add(entity) != null)
                 {
 
                     var cuenta = contexto.Cuenta.Find(entity.CuentaID);
                     //Incrementar el balance
-                    cuenta.Balance += entity.TotalAPagar;
+                    cuenta.Balance += total;
+
 
 
                     contexto.SaveChanges();
@@ -38,38 +44,37 @@ namespace BLL
             return paso;
         }
 
-        public bool Eliminar(int id)
+        public override bool Eliminar(int id)
         {
             bool paso = false;
-            Contexto contexto = new Contexto();
-
+            decimal total = 0;
             try
             {
-                Prestamo prestamo = contexto.Prestamo.Find(id);
+                Prestamo Cuotas = _contexto.Prestamo.Find(id);
 
-                if (prestamo != null)
+                var Anterior = _contexto.Prestamo.Find(Cuotas.PrestamoID);
+                foreach (var item in Anterior.Detalle)
                 {
-                    var cuenta = contexto.Cuenta.Find(prestamo.CuentaID);
-                    //Incrementar la cantidad
-                    cuenta.Balance -= prestamo.TotalAPagar;
-
-                    contexto.Entry(prestamo).State = EntityState.Deleted;
-
+                    if (!Cuotas.Detalle.Exists(d => d.CuotaID == item.CuotaID))
+                        _contexto.Entry(item).State = EntityState.Deleted;
                 }
+                foreach (var item in Cuotas.Detalle)
+                {
+                    total -= item.Interes+item.Capital;
+                }
+                _contexto.Cuenta.Find(Cuotas.CuentaID).Balance += total;
+                _contexto.Prestamo.Remove(Cuotas);
 
-                if (contexto.SaveChanges() > 0)
+                if (_contexto.SaveChanges() > 0)
                 {
                     paso = true;
-                    contexto.Dispose();
                 }
-
-
+                _contexto.Dispose();
             }
             catch (Exception)
             {
                 throw;
             }
-
             return paso;
         }
 

@@ -158,7 +158,7 @@
     <Content Include="UI\Consultas\ConsulCuentas.aspx" />
     <Content Include="UI\Consultas\ConsulDepositos.aspx" />
     <Content Include="UI\Consultas\ConsulPrestamo.aspx" />
-    <Content Include="UI\Registros\Cuenta.aspx" />
+    <Content Include="UI\Registros\RegistroCuenta.aspx" />
     <Content Include="UI\Registros\Depositos.aspx" />
     <Content Include="UI\Registros\Prestamos.aspx" />
     <Content Include="UI\Reportes\ReportePrestamo.aspx" />
@@ -219,12 +219,12 @@
     <Compile Include="UI\Consultas\ConsulPrestamo.aspx.designer.cs">
       <DependentUpon>ConsulPrestamo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Registros\Cuenta.aspx.cs">
-      <DependentUpon>Cuenta.aspx</DependentUpon>
+    <Compile Include="UI\Registros\RegistroCuenta.aspx.cs">
+      <DependentUpon>RegistroCuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\Registros\Cuenta.aspx.designer.cs">
-      <DependentUpon>Cuenta.aspx</DependentUpon>
+    <Compile Include="UI\Registros\RegistroCuenta.aspx.designer.cs">
+      <DependentUpon>RegistroCuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\Depositos.aspx.cs">
       <DependentUpon>Depositos.aspx</DependentUpon>

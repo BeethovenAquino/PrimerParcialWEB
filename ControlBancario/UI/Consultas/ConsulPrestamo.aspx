@@ -77,12 +77,16 @@
                     <HeaderStyle BackColor="LightCyan" Font-Bold="True" />
                 </asp:GridView>
 
-                 <div class="panel-footer">
-                            <div class="text-center">
-                        <asp:Button ID="ReporteButton" runat="server" class="btn btn-success" Text="Imrpimir" OnClick="ReporteButton_Click" />
-                                </div>
-                            </div>
+                 
             </div>
         </div>
     </div>
+
+        <div class="panel-footer">
+            <div class="modal-content">
+                            <div class="text-center">
+                        <asp:Button ID="ReporteButton" runat="server" class="btn btn-success" data-dismiss="modal" data-toggle="modal" Text="Imrpimir" OnClick="ReporteButton_Click" />
+                                </div>
+                            </div>
+            </div>
 </asp:Content>

@@ -151,7 +151,11 @@ namespace ControlBancario.UI.Consultas
 
         protected void ReporteButton_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>window.open('../Reportes/ConsultaPrestamo.aspx','_blanck');</script");
+            
+                string script = "window.open('../Reportes/ConsultaPrestamo.aspx', '');";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "openpopup", script, true);
+            
+            //Response.Write("<script>window.open('../Reportes/ConsultaPrestamo.aspx','_blanck');</script");
         }
     }
 }

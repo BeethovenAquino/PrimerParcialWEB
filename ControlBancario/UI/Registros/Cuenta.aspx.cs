@@ -26,16 +26,7 @@ namespace ControlBancario.UI.Registros
         public Cuentas LlenaClase()
         {
             Cuentas cuentas = new Cuentas();
-            int id;
-            bool result = int.TryParse(CuentaIDTextbox.Text, out id);
-            if (result == true)
-            {
-                cuentas.CuentaID = id;
-            }
-            else
-            {
-                cuentas.CuentaID = 0;
-            }
+            cuentas.CuentaID = Utilities.Utils.ToInt(CuentaIDTextbox.Text);
 
             cuentas.Nombre = nombreTextbox.Text;
             cuentas.Balance = Convert.ToDecimal(BalanceTexbox.Text.ToString());
@@ -79,7 +70,7 @@ namespace ControlBancario.UI.Registros
 
             if (Page.IsValid)
             {
-                if (Utilities.Utils.ToInt(CuentaIDTextbox.Text) >=0)
+                if (cuenta.CuentaID == 0)
                 {
                     paso = repositorio.Guardar(cuenta);
 

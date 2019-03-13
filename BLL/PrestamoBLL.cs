@@ -81,9 +81,6 @@ namespace BLL
 
         public override bool Modificar(Prestamo entity)
         {
-
-
-
             _contexto = new DAL.Contexto();
             decimal montoBaseDatos = 0;
             decimal montoEntidad = 0;
@@ -113,7 +110,7 @@ namespace BLL
 
                 //Marca como borrado alguna cuota que este en base de datos y no en la lista detalle
 
-                if (entity.Detalle.Count <= detalleAnterior.Count)
+                if (entity.Detalle.Count < detalleAnterior.Count)
                 {
                     foreach (var item in detalleAnterior)
                     {

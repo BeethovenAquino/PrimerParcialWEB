@@ -35,17 +35,7 @@ namespace ControlBancario.UI.Registros
         public Prestamo LlenaClase()
         {
             Prestamo prestamo = new Prestamo();
-            int id;
-            bool result = int.TryParse(PrestamoIDTextbox.Text, out id);
-            if (result == true)
-            {
-                prestamo.PrestamoID = id;
-            }
-            else
-            {
-                prestamo.PrestamoID = 0;
-            }
-
+            prestamo.PrestamoID = Utilities.Utils.ToInt(PrestamoIDTextbox.Text);
             prestamo.CuentaID = Utilities.Utils.ToInt(CuentaDropDownList.SelectedValue);
             prestamo.Capital = Utilities.Utils.ToDecimal(CapitalTexbox.Text);
             prestamo.Fecha = Convert.ToDateTime(FechadateTime.Text);
@@ -159,7 +149,7 @@ namespace ControlBancario.UI.Registros
 
                 if (Page.IsValid)
                 {
-                    if (PrestamoIDTextbox.Text == "0")
+                    if (prestamo.PrestamoID == 0)
                     {
                         paso = repositorio.Guardar(prestamo);
 

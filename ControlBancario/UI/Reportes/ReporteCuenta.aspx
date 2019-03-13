@@ -14,10 +14,15 @@
 </head>
 <body>
     <form id="form2" runat="server">
+        
         <div id="div1">
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+              <!-- Cuerpo del modal puede tener un formulario manin -->
+            
+              <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <rsweb:ReportViewer ID="CuentaReportViewer" runat="server" Height="100%" Width="100%"></rsweb:ReportViewer>
+            
         </div>
+            
     </form>
 
 </body>

@@ -151,7 +151,7 @@
                 <div class="form-group">
                     <div class=" col-md-8 col-sm-4">
                         <div class="col-md-4 col-sm-4">
-                            <asp:Button ID="CalcularButton" OnClick="CalcularButton_Click" ValidationGroup="Calcular" CssClass="form-control btn btn-primary" runat="server" Text="Calcular" />
+                            <asp:Button ID="CalcularButton" OnClick="CalcularButton_Click" ValidationGroup="Guardar" CssClass="form-control btn btn-primary" runat="server" Text="Calcular"  />
                         </div>
                     </div>
                 </div>
@@ -188,7 +188,7 @@
                                     <AlternatingRowStyle BackColor="White" />
 
                                     <Columns>
-                                        <asp:BoundField DataField="CuotaID" HeaderText="CuotaID" />
+                                        <asp:BoundField DataField="NumeroCuotas" HeaderText="Numero de cuotas" />
                                         <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                                         <asp:BoundField DataField="Interes" HeaderText="Interes" />
                                         <asp:BoundField DataField="Capital" HeaderText="Capital" />
@@ -228,7 +228,7 @@
                    
                 <asp:Button ID="EliminarButton" runat="server" class="btn btn-danger" Text="Eliminar" OnClick="EliminarButton_Click" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 
-                <asp:Button ID="ReporteButton" runat="server" class="btn btn-success" Text="Imrpimir" OnClick="ReporteButton_Click" />
+                <asp:Button ID="ReporteButton" runat="server" class="btn btn-success" Text="Imrpimir" OnClick="ReporteButton_Click"  />
    
     </div>
 

@@ -81,40 +81,69 @@ namespace BLL
 
         public override bool Modificar(Prestamo entity)
         {
+
+
+
+            _contexto = new DAL.Contexto();
+            decimal montoBaseDatos = 0;
+            decimal montoEntidad = 0;
             bool paso = false;
-            Contexto contexto = new Contexto();
-            RepositorioBase<Deposito> repositorio = new RepositorioBase<Deposito>();
             try
             {
+                //Busca el detalle anterior en base de datos
+                var detalleAnterior = _contexto.Cuotas.Where(x => x.PrestamoID == entity.PrestamoID).AsNoTracking().ToList();
 
-                var depositosanterior = repositorio.Buscar(entity.PrestamoID);
 
-                var Cuenta = contexto.Cuenta.Find(entity.CuentaID);
-                var Cuentasanterior = contexto.Cuenta.Find(depositosanterior.CuentaID);
 
-                if (entity.CuentaID != depositosanterior.CuentaID)
+                //Agrega a la variable montoBaseDatos el monto del capital mas el interes
+                foreach (var item in detalleAnterior)
                 {
-                    //Cuenta.Balance += entity.Monto;
-                    Cuentasanterior.Balance -= depositosanterior.Monto;
+                    montoBaseDatos += item.Capital + item.Interes;
+
                 }
 
-
-                decimal diferencia;
-                //diferencia = entity.Monto - depositosanterior.Monto;
-
-                /*Cuenta.Balance += diferencia*/;
-
-                contexto.Entry(entity).State = EntityState.Modified;
-
-                if (contexto.SaveChanges() > 0)
+                //Agrega a la variable montoEntidad el monto del capital mas el interes
+                foreach (var item in entity.Detalle)
                 {
-                    paso = true;
+                    montoEntidad += item.Capital + item.Interes;
                 }
-                contexto.Dispose();
+
+                _contexto.Cuenta.Find(entity.CuentaID).Balance -= montoBaseDatos;
+                _contexto.Cuenta.Find(entity.CuentaID).Balance += montoEntidad;
+
+                //Marca como borrado alguna cuota que este en base de datos y no en la lista detalle
+
+                if (entity.Detalle.Count <= detalleAnterior.Count)
+                {
+                    foreach (var item in detalleAnterior)
+                    {
+                        if (!entity.Detalle.Exists(x => x.CuotaID.Equals(item.CuotaID)))
+                        {
+                            _contexto.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+
+                        }
+                    }
+                }
+
+                //Modifica o agrega una nueva cuota 
+                foreach (var item in entity.Detalle)
+                {
+                    _contexto.Entry(item).State = item.CuotaID == 0 ? EntityState.Added : EntityState.Modified;
+                }
+
+                //modifica la entidad
+                _contexto.Entry(entity).State = EntityState.Modified;
+
+                //Guarda
+                paso = _contexto.SaveChanges() > 0 ? true : false;
+
 
             }
-            catch (Exception) { throw; }
+            catch (Exception)
+            {
 
+                throw;
+            }
             return paso;
         }
         

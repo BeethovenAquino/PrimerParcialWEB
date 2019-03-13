@@ -117,10 +117,10 @@ namespace ControlBancario.UI.Registros
 
                 if (i == 0)
                 {
-                    cuotas.Add(new Cuotas(0, 0, Fecha, MontoCuota, interes, Capital, Balance));
+                    cuotas.Add(new Cuotas(0, i + 1,0, Fecha, MontoCuota, interes, Capital, Balance));
                 }
                 else
-                    cuotas.Add(new Cuotas(0, 0, Fecha.AddMonths(i), MontoCuota, interes, Capital, Balance));
+                    cuotas.Add(new Cuotas(0, i + 1,0, Fecha.AddMonths(i), MontoCuota, interes, Capital, Balance));
                 
             }
             return cuotas;
@@ -136,6 +136,12 @@ namespace ControlBancario.UI.Registros
         {
             if (Convert.ToInt32(CuentaDropDownList.SelectedValue) == 0)
                 return;
+
+            if(CuotasGridView.Rows.Count==0)
+            {
+                Utilities.Utils.ShowToastr(this, "No se encuentra el ID", "Error", "error");
+                return;
+            }
 
 
             PrestamoBLL repositorio = new PrestamoBLL();

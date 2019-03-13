@@ -19,6 +19,7 @@ namespace Entities
         public decimal Capital { get; set; }
         public DateTime Fecha { get; set; }
         public int TotalAPagar { get; set; }
+        
         public virtual List<Cuotas> Detalle { get; set; }
 
         public Prestamo(int prestamoID, int cuentaID, decimal interes, int tiempo, decimal capital, DateTime fecha, int totalAPagar, List<Cuotas> detalle)
@@ -46,9 +47,9 @@ namespace Entities
 
         }
 
-        public void AgregarDetalle(int CuotaID,int PrestamoID, DateTime Fecha,decimal MontoApagar, decimal Interes, decimal Capital, decimal Balance)
+        public void AgregarDetalle(int CuotaID, int NumeroCuotas,int PrestamoID, DateTime Fecha,decimal MontoApagar, decimal Interes, decimal Capital, decimal Balance)
         {
-            this.Detalle.Add(new Cuotas(CuotaID,PrestamoID, Fecha, MontoApagar, Interes, Capital, Balance));
+            this.Detalle.Add(new Cuotas(CuotaID,NumeroCuotas,PrestamoID, Fecha, MontoApagar, Interes, Capital, Balance));
         }
     }
 }

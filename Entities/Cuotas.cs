@@ -13,19 +13,22 @@ namespace Entities
     {
         [Key]
         public int CuotaID { get; set; }
+        public int NumeroCuotas { get; set; }
         public int PrestamoID { get; set; }
         public DateTime Fecha { get; set; }
         public decimal MontoApagar { get; set; }
         public decimal Interes { get; set; }
         public decimal Capital { get; set; }
         public decimal Balance { get; set; }
-      
+        
+
         [ForeignKey("PrestamoID")]
         public virtual Prestamo prestamos { get; set; }
 
-        public Cuotas(int cuotaID, int prestamoID, DateTime fecha, decimal montoApagar, decimal interes, decimal capital, decimal balance)
+        public Cuotas(int cuotaID, int numeroCuotas, int prestamoID, DateTime fecha, decimal montoApagar, decimal interes, decimal capital, decimal balance)
         {
             CuotaID = cuotaID;
+            NumeroCuotas = numeroCuotas;
             PrestamoID = prestamoID;
             Fecha = fecha;
             MontoApagar = montoApagar;
@@ -43,6 +46,7 @@ namespace Entities
             Interes = 0;
             Capital=0;
             Balance = 0;
+            NumeroCuotas = 0;
            
 
         }

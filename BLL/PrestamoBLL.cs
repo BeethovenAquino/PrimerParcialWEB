@@ -85,7 +85,7 @@ namespace BLL
             bool paso = false;
             try
             {
-                var DetalleAnt = _contexto.Cuotas.Where(x => x.CuotaID == entity.CuentaID).AsNoTracking().ToList();
+                var DetalleAnt = _contexto.Cuotas.Where(x => x.PrestamoID == entity.PrestamoID).AsNoTracking().ToList();
 
                 foreach (var item in DetalleAnt)
                 {

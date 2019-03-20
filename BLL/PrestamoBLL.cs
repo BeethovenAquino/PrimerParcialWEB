@@ -81,65 +81,13 @@ namespace BLL
 
         public override bool Modificar(Prestamo entity)
         {
-            _contexto = new DAL.Contexto();
-            decimal montoBaseDatos = 0;
-            decimal montoEntidad = 0;
+            Prestamo prestamo = new Prestamo();
             bool paso = false;
-            try
+            var DetalleAnt = _contexto.Cuotas.Where(x => x.CuotaID == prestamo.CuentaID).AsNoTracking().ToList();
+
+            foreach (var item in DetalleAnt)
             {
-                //Busca el detalle anterior en base de datos
-                var detalleAnterior = _contexto.Cuotas.Where(x => x.PrestamoID == entity.PrestamoID).AsNoTracking().ToList();
-
-
-
-                //Agrega a la variable montoBaseDatos el monto del capital mas el interes
-                foreach (var item in detalleAnterior)
-                {
-                    montoBaseDatos += item.Capital + item.Interes;
-
-                }
-
-                //Agrega a la variable montoEntidad el monto del capital mas el interes
-                foreach (var item in entity.Detalle)
-                {
-                    montoEntidad += item.Capital + item.Interes;
-                }
-
-                _contexto.Cuenta.Find(entity.CuentaID).Balance -= montoBaseDatos;
-                _contexto.Cuenta.Find(entity.CuentaID).Balance += montoEntidad;
-
-                //Marca como borrado alguna cuota que este en base de datos y no en la lista detalle
-
-                if (entity.Detalle.Count < detalleAnterior.Count)
-                {
-                    foreach (var item in detalleAnterior)
-                    {
-                        if (!entity.Detalle.Exists(x => x.CuotaID.Equals(item.CuotaID)))
-                        {
-                            _contexto.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-
-                        }
-                    }
-                }
-
-                //Modifica o agrega una nueva cuota 
-                foreach (var item in entity.Detalle)
-                {
-                    _contexto.Entry(item).State = item.CuotaID == 0 ? EntityState.Added : EntityState.Modified;
-                }
-
-                //modifica la entidad
-                _contexto.Entry(entity).State = EntityState.Modified;
-
-                //Guarda
-                paso = _contexto.SaveChanges() > 0 ? true : false;
-
-
-            }
-            catch (Exception)
-            {
-
-                throw;
+                
             }
             return paso;
         }

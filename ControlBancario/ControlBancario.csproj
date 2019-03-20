@@ -169,6 +169,8 @@
     <Content Include="ControlBancarioooDbDataSet.xss">
       <DependentUpon>ControlBancarioooDbDataSet.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\Control-Bancario - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Control-Bancario - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
     <Content Include="UI\Reportes\ConsultaPrestamo.aspx" />
     <Content Include="UI\Reportes\ReporteCuenta.aspx" />
@@ -326,10 +328,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="UI\Reportes\ConsultarPrestamoReport.rdlc" />
-    <EmbeddedResource Include="UI\Reportes\CuentaReport.rdlc" />
-    <EmbeddedResource Include="UI\Reportes\CuentaReporteeeReport.rdlc" />
-    <EmbeddedResource Include="UI\Reportes\PrestamoReport.rdlc" />
+    <Content Include="UI\Reportes\ConsultarPrestamoReport.rdlc" />
+    <Content Include="UI\Reportes\CuentaReport.rdlc" />
+    <Content Include="UI\Reportes\CuentaReporteeeReport.rdlc" />
+    <Content Include="UI\Reportes\PrestamoReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

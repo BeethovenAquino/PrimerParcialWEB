@@ -107,10 +107,10 @@ namespace ControlBancario.UI.Registros
 
                 if (i == 0)
                 {
-                    cuotas.Add(new Cuotas(0, i + 1,0, Fecha, MontoCuota, interes, Capital, Balance));
+                    cuotas.Add(new Cuotas(0, i + 1,0, Fecha,Math.Round(MontoCuota,2), Math.Round(interes,2), Math.Round(Capital,2),Math.Round(Balance,2)));
                 }
                 else
-                    cuotas.Add(new Cuotas(0, i + 1,0, Fecha.AddMonths(i), MontoCuota, interes, Capital, Balance));
+                    cuotas.Add(new Cuotas(0, i + 1,0, Fecha.AddMonths(i), Math.Round(MontoCuota,2), Math.Round(interes,2), Math.Round(Capital,2), Math.Round(Balance,2)));
                 
             }
             return cuotas;

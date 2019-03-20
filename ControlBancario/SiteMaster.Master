@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
      <title>Control Bancario</title>
-    
+    <meta name="viewport" content="width=device-width intiial-scale=1" />
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">

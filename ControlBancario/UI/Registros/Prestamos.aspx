@@ -181,9 +181,9 @@
                 
                 <%--CuaotasGridView--%>
                 <div class="form-group">
-                    <div class=" col-md-12 col-sm-12">
+                    <div class="table-responsive col-md-12 col-sm-12">
                         
-                                <asp:GridView ID="CuotasGridView" AllowPaging="true"  PageSize="12" runat="server" Height="100%" Width="100%" class="table table-responsive text-center" AutoGenerateColumns="False"
+                                <asp:GridView ID="CuotasGridView" AllowPaging="true"  PageSize="12" runat="server" Height="100%" Width="100%" class="table text-center" AutoGenerateColumns="False"
                                     CellPadding="4" ForeColor="#333333" GridLines="None">
                                     <AlternatingRowStyle BackColor="White" />
 

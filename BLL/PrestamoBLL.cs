@@ -81,15 +81,43 @@ namespace BLL
 
         public override bool Modificar(Prestamo entity)
         {
-            Prestamo prestamo = new Prestamo();
+           
             bool paso = false;
-            var DetalleAnt = _contexto.Cuotas.Where(x => x.CuotaID == prestamo.CuentaID).AsNoTracking().ToList();
-
-            foreach (var item in DetalleAnt)
+            try
             {
-                
+                var DetalleAnt = _contexto.Cuotas.Where(x => x.CuotaID == entity.CuentaID).AsNoTracking().ToList();
+
+                foreach (var item in DetalleAnt)
+                {
+                    if (!entity.Detalle.Exists(x => x.CuotaID.Equals(item.CuotaID)))
+                    {
+                        _contexto.Entry(item).State = EntityState.Deleted;
+                    }
+                }
+
+                foreach (var item in entity.Detalle)
+                {
+                    _contexto.Entry(item).State = item.CuotaID == 0 ? EntityState.Added : EntityState.Modified;
+                }
+
+                _contexto.Entry(entity).State = EntityState.Modified;
+
+                if (_contexto.SaveChanges() > 0)
+                {
+                    paso = true;
+                }
+                _contexto.Dispose();
+
             }
+            catch (Exception)
+            {
+                throw;
+            }
+
             return paso;
+
+            
+           
         }
         
     }
